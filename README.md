@@ -1,4 +1,7 @@
 # aosprotocol
 Documentation and development of the protocol used by AoS 0.x, OpenSpades, pyspades and piqueserver
 
-For now there is not much here but a dump of the original aoswiki.rakiru.com Protocol page
+Browse the documentation at https://piqueserver.gitub.io/aosprotocol.
+
+This started out as a dump of the aoswiki.rakiru.com Protocol page, but is meant to be the hub for
+developing the AoS protocol in the future
