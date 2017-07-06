@@ -24,9 +24,12 @@ here
 
 When you connect, you must send a version number as the initial data.
 
-Following that a client needs to send an Existing Player data packet to send its own name, team etc.
+Following that a client needs to send an Existing Player data packet to send
+its own name, team etc.
 
-If the client does not send an Existing Player packet first, but any other packet, then the server closes the connection and seems to temporarily ban the player.
+If the client does not send an Existing Player packet first, but any other
+packet, then the server closes the connection and seems to temporarily ban the
+player.
 
 | Number | AoS version |
 |--------|-------------|
@@ -35,7 +38,8 @@ If the client does not send an Existing Player packet first, but any other packe
 
 ## Disconnect Reasons
 
-Whenever the connection is closed by the server, there is a reason supplied to the client in the event's data (event.data).
+Whenever the connection is closed by the server, there is a reason supplied to
+the client in the event's data (event.data).
 
 | Number | Reason                       |
 |--------|------------------------------|
@@ -46,15 +50,19 @@ Whenever the connection is closed by the server, there is a reason supplied to t
 | 10     | Kicked                       |
 | 20     | Invalid Name (new in 0.75.1) |
 
-Send this magic number as part of the `enet_host_connect(ENetHost, ENetAddress, channels, int)` function
+Send this magic number as part of the `enet_host_connect(ENetHost, ENetAddress,
+channels, int)` function
 
 ## About Coordinates
 
-In Ace of Spades the up-down axis is Z and it is inverted. This means 63 is water level and 0 is the highest point on a map.
+In Ace of Spades the up-down axis is Z and it is inverted. This means 63 is
+water level and 0 is the highest point on a map.
 
 # Packets
 
-All packets start with an unsigned byte to specify their type, followed by the data for that type of packet. The size given for each packet below includes this byte.
+All packets start with an unsigned byte to specify their type, followed by the
+data for that type of packet. The size given for each packet below includes
+this byte.
 
 ## Data types
 
@@ -101,7 +109,9 @@ This packet is used to set the players orientation.
 |        z | LE Float |  `0`  |     |
 
 ## World Update (0.75)
-Updates position and orientation of all players. Always sends data for 32 players, with empty slots being all 0 (position: [0,0,0], orientation: [0,0,0]).
+Updates position and orientation of all players. Always sends data for 32
+players, with empty slots being all 0 (position: [0,0,0], orientation:
+[0,0,0]).
 
 | ----------: | -------- |
 | Packet ID   | 2        |
@@ -130,7 +140,8 @@ Updates position and orientation of all players. Always sends data for 32 player
 | z orientation | LE Float   | `0`     | 0 for non-players |
 
 ## World Update (0.76)
-Updates position and orientation of all players. Unlike 0.75, this only sends information for the necessary players.
+Updates position and orientation of all players. Unlike 0.75, this only sends
+information for the necessary players.
 
 | -----------: | ----------    |
 | Packet ID    | 2             |
@@ -201,7 +212,9 @@ Contains the weapon input state(?).
 ## Hit Packet
 #### Client-to-Server
 
-Sent by the client when a hit is registered. The server should verify that this is possible to prevent abuse (such as hitting without shooting, facing the wrong way, etc).
+Sent by the client when a hit is registered. The server should verify that this
+is possible to prevent abuse (such as hitting without shooting, facing the
+wrong way, etc).
 
 
 | -----------:| ------- |
@@ -481,7 +494,9 @@ gamemode, it is documented separately.
 ## State Data
 `Server-->Client`
 
-Indicates that the map transfer is complete. Also informs the client of numerous game parameters. Be aware that CTFState or TCState may be appended to the packet after the gamemode id portion.
+Indicates that the map transfer is complete. Also informs the client of
+numerous game parameters. Be aware that CTFState or TCState may be appended to
+the packet after the gamemode id portion.
 
 | ----------: | -------- |
 | Packet ID   | 15       |
@@ -597,10 +612,9 @@ Should be the first packet received when a client connects.
 ## Map Chunk
 #### Server->Client
 
-Sent just after [[Ace_of_Spades_Protocol#Map_Start_(0.75) Map Start]], repeatedly until the entire map is sent.
+Sent just after **Map Start**, repeatedly until the entire map is sent.
 
-Should always be the next sequence of packets after a [[Ace_of_Spades_Protocol#Map_Start_(0.75) Map Start]].
-
+Should always be the next sequence of packets after a **Map Start** packet.
 
 | ----------: | -------- |
 | Packet ID   | 19       |
@@ -673,7 +687,6 @@ Display the TC progress bar.
 Sent when a player captures the intel, which is determined by the server.
 
 Winning captures have affects on the client.
-
 
 | ----------: | -------- |
 | Packet ID   | 23       |
@@ -752,10 +765,11 @@ Set the colour of a player's fog.
 ## Weapon Reload
 #### Client-->Server->Protocol
 
-Sent by the client when the player reloads their weapon, and relayed to other clients after protocol logic applied.
+Sent by the client when the player reloads their weapon, and relayed to other
+clients after protocol logic applied.
 
-This has no affect on animation, but is used to trigger sound effects on the other clients.
-
+This has no affect on animation, but is used to trigger sound effects on the
+other clients.
 
 | ----------: | -------- |
 | Packet ID   | 28       |
@@ -770,9 +784,12 @@ This has no affect on animation, but is used to trigger sound effects on the oth
 | reserve ammo | UByte      | `0`     |                     |
 
 ## Change Team
-#### Client-->Server-->Protocol-->[[Ace_of_Spades_Protocol#Kill_Action Kill Action]] & [[Ace_of_Spades_Protocol#Create_Player Create Player]]
+#### Client-->Server-->Protocol-->Kill Action & Create Player
 
-Sent by the client when the player changes team. Is not relayed to all clients directly, but instead uses [[Ace_of_Spades_Protocol#Kill_Action Kill Action]] then [[Ace_of_Spades_Protocol#Create_Player Create Player]] to inform other clients of the team change.
+Sent by the client when the player changes team. Is not relayed to all clients
+directly, but instead uses **Kill Action**
+then **Create Player** to inform other
+clients of the team change.
 
 | ----------: | -------- |
 | Packet ID   | 29       |
@@ -794,11 +811,14 @@ Sent by the client when the player changes team. Is not relayed to all clients d
 | 1     | green     |
 
 ## Change Weapon
-#### Client-->Server-->Protocol-->[[Ace_of_Spades_Protocol#Kill_Action|Kill Action]] & [[Ace_of_Spades_Protocol#Change_Weapon|Change Weapon]]
+#### Client-->Server-->Protocol-->Kill Action & Change Weapon
 
-Sent by the client when player changes weapon, and relayed to clients by server after filter_visibility logic applied.
+Sent by the client when player changes weapon, and relayed to clients by server
+after `filter_visibility` logic is applied.
 
-Receiving clients will also be sent a preceding [[Ace_of_Spades_Protocol#Kill_Action Kill Action]] to inform them the player has died both of which are sent as reliable packets.
+Receiving clients will also be sent a preceding
+**Kill Action** to inform them the player
+has died both of which are sent as reliable packets.
 
 
 | ----------: | -------- |
@@ -926,10 +946,10 @@ Once this is sent, the script is loaded.
 ### Script Parameters
 Start from after the 0-byte in the Function name string. Then, loop through these IDs:
 
-* 0: ASP_TERM: End of parameter list.
-* 1: ASP_INT: Read a 32-bit little-endian int. AngelScript type: "int"
-* 2: ASP_FLOAT: Read a 32-bit little-endian single-precision float. AngelScript type: "float"
-* 3: ASP_PSTRING: Read an 8-bit uint, then read that many bytes as a string (do NOT add in a terminating NUL). AngelScript type: "const string &in"
+* 0: `ASP_TERM`: End of parameter list.
+* 1: `ASP_INT`: Read a 32-bit little-endian int. AngelScript type: "int"
+* 2: `ASP_FLOAT`: Read a 32-bit little-endian single-precision float. AngelScript type: "float"
+* 3: `ASP_PSTRING`: Read an 8-bit uint, then read that many bytes as a string (do NOT add in a terminating NUL). AngelScript type: "const string &in"
 
 With Ace of Spades being taken over by Jagex and them dropping support for Ace of Spades classic and instead creating and selling Ace of Spades 1.0, a large part of the community has broken away and aims to keep the game they love going strong. The main community forum is [http://www.buildandshoot.com/ Build and Shoot].
 
@@ -938,17 +958,17 @@ In this effort, people are creating their own, open-source versions of the game,
 If you are interested in contributing to this wiki, feel free to do so.
 
 # Discussion
-You can discuss development for Ace of Spades classic in #aos.development on [irc://irc.quacknet.org/#aos.development QuackNet] ([http://webchat.quacknet.org/?channels=%23aos.development webchat]).
+You can discuss development for Ace of Spades classic in the following places:
+- `#aos.development` on QuakeNet [webchat](http://webchat.quacknet.org/?channels=%23aos.development), mostly abandoned
 
 # Classic Projects
 
 ## Client
-* [http://www.buildandshoot.com/viewtopic.php?f=5&t=74 Cube Root] ([https://github.com/RootDynasty/cuberoot github])
-* [[Iceball]] ([https://github.com/iamgreaser/buldthensnip github])
+* Cube Root [Forum](http://www.buildandshoot.com/viewtopic.php?f=5&t=74) [github](https://github.com/RootDynasty/cuberoot)
+* [[Iceball]] ([https://github.com/iamgreaser/iceball github])
 * [[Voxlap Port]] ([https://github.com/Ericson2314/Voxlap github])
 
 ## Server
-* [[Jack of Spades]] ([https://github.com/rakiru/Jack-of-Spades github])
 * [http://code.google.com/p/pyspades/ pyspades] (<strike>[http://code.google.com/p/pyspades/ google code]</strike>[https://github.com/infogulch/pyspades github])
 * [http://code.google.com/p/pysnip/ pysnip] ([http://code.google.com/p/pysnip/ google code])
 
@@ -956,8 +976,6 @@ You can discuss development for Ace of Spades classic in #aos.development on [ir
 * [[VoxelAuth]]
 
 # Resources
-* [[Ace of Spades Protocol]] - An attempt at fully documenting the Ace of Spades 0.75 network protocol
-* [http://aoswiki.rakiru.com/webpages/index.html Misc Utils] - Online utils for Ace of Spades, such as aos:// address <=> IP converter
 * [http://mystaddict.tlayeh.com/Computer%20Camp/Slab6/slab6.txt KVX File Format Specification] - A mirror of the readme for Slab6 which contains the .kvx file format, the format that the AoS model format is based on
 * [http://silverspaceship.com/aosmap/aos_file_format.html VXL File Format Specification] - A description of the .vxl file format, the format used for AoS maps
 * [http://enet.bespin.org/ ENet] - The networking library used by Ace of Spades
