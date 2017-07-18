@@ -9,6 +9,15 @@ system at the release of Ace of Spades 1.0. The reason(s) for this is unknown,
 but it is speculated that [Jagex](https://en.wikipedia.org/wiki/Jagex) has
 paid them off, as they now own AoS.
 
+# Versions
+
+Except where otherwise noted, this document applies to .75, the only
+commonly played version.
+
+The Piqueserver and OpenSpades teams have introduced a number changes that are
+backwards compatible with .75. This "version" of the protocol is called 0.75.1
+here
+
 # Connection
 
 When you connect, you must send a version number as the initial data.
@@ -33,6 +42,7 @@ Whenever the connection is closed by the server, there is a reason supplied to t
 | 3      | Wrong protocol version       |
 | 4      | Server full                  |
 | 10     | Kicked                       |
+| 20     | Invalid Name (new in 0.75.1) |
 
 Send this magic number as part of the `enet_host_connect(ENetHost, ENetAddress, channels, int)` function
 
