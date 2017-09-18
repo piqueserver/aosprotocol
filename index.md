@@ -1,6 +1,6 @@
 This page documents Ace of Spades 0.75, the last fully released version of Ace of Spades classic, and 0.76, the last publically available version of Ace of Spades Classic.
 
-[View 1.0 alpha documentation](aosprotocol/protocol100a1.md)
+[View 1.0 alpha documentation](protocol100a1.md)
 
 # Overview
 [Ace of Spades](http://buildandshoot.com/) uses the [ENet networking
