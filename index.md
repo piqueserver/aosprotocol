@@ -855,7 +855,9 @@ Sent when a client connects, or a map is advanced for already existing connectio
 
 Should be the first packet received when a client connects.
 
-The version must exist and be >= 1 (and <= the client's Powerthirst proto version or otherwise the client will refuse to connect) to enable certain Powerthirst features such as long-name support.
+The version must exist and be >= 1 (and &lt;= the client's Powerthirst proto
+version or otherwise the client will refuse to connect) to enable certain
+Powerthirst features such as long-name support.
 
 
 | ----------: | -------- |
@@ -894,7 +896,7 @@ This is just a remapping of the [[Ace_of_Spades_Protocol#Map_Chunk Map Chunk]] p
 | Field Name  | Field Type                                                 | Example | Notes |
 |-------------|------------------------------------------------------------|---------|-------|
 | Script size | Uint32                                                     | `4567`  |       |
-| Module name | [CP437](http://en.wikipedia.org/wiki/Code_page_437) String | ``      |       |
+| Module name | [CP437](http://en.wikipedia.org/wiki/Code_page_437) String |         |       |
 
 ## Script Chunk (PT)
 #### Server->Client
@@ -926,7 +928,7 @@ Once this is sent, the script is loaded.
 
 | Field Name  | Field Type                                                 | Example | Notes |
 |-------------|------------------------------------------------------------|---------|-------|
-| Module name | [CP437](http://en.wikipedia.org/wiki/Code_page_437) String | ``      |       |
+| Module name | [CP437](http://en.wikipedia.org/wiki/Code_page_437) String |         |       |
 
 ## Script Call (PT)
 #### Server->Client
@@ -941,7 +943,7 @@ Once this is sent, the script is loaded.
 | Field Name    | Field Type                                                              | Example       | Notes                                                      |
 |---------------|-------------------------------------------------------------------------|---------------|------------------------------------------------------------|
 | Function name | 0-terminated [CP437](http://en.wikipedia.org/wiki/Code_page_437) String | `void main()` | Must be an AngelScript prototype, not just the name itself |
-| Parameters    | See below                                                               | ``            |                                                            |
+| Parameters    | See below                                                               |               |                                                            |
 
 ### Script Parameters
 Start from after the 0-byte in the Function name string. Then, loop through these IDs:
@@ -951,33 +953,6 @@ Start from after the 0-byte in the Function name string. Then, loop through thes
 * 2: `ASP_FLOAT`: Read a 32-bit little-endian single-precision float. AngelScript type: "float"
 * 3: `ASP_PSTRING`: Read an 8-bit uint, then read that many bytes as a string (do NOT add in a terminating NUL). AngelScript type: "const string &in"
 
-With Ace of Spades being taken over by Jagex and them dropping support for Ace of Spades classic and instead creating and selling Ace of Spades 1.0, a large part of the community has broken away and aims to keep the game they love going strong. The main community forum is [http://www.buildandshoot.com/ Build and Shoot].
-
-In this effort, people are creating their own, open-source versions of the game, listed below. If there is a project missing, and is active, add it to this page.
-
-If you are interested in contributing to this wiki, feel free to do so.
-
-# Discussion
-You can discuss development for Ace of Spades classic in the following places:
-- `#aos.development` on QuakeNet [webchat](http://webchat.quacknet.org/?channels=%23aos.development), mostly abandoned
-
-# Classic Projects
-
-## Client
-* Cube Root [Forum](http://www.buildandshoot.com/viewtopic.php?f=5&t=74) [github](https://github.com/RootDynasty/cuberoot)
-* [[Iceball]] ([https://github.com/iamgreaser/iceball github])
-* [[Voxlap Port]] ([https://github.com/Ericson2314/Voxlap github])
-
-## Server
-* [http://code.google.com/p/pyspades/ pyspades] (<strike>[http://code.google.com/p/pyspades/ google code]</strike>[https://github.com/infogulch/pyspades github])
-* [http://code.google.com/p/pysnip/ pysnip] ([http://code.google.com/p/pysnip/ google code])
-
-## Other
-* [[VoxelAuth]]
-
-# Resources
-* [http://mystaddict.tlayeh.com/Computer%20Camp/Slab6/slab6.txt KVX File Format Specification] - A mirror of the readme for Slab6 which contains the .kvx file format, the format that the AoS model format is based on
-* [http://silverspaceship.com/aosmap/aos_file_format.html VXL File Format Specification] - A description of the .vxl file format, the format used for AoS maps
-* [http://enet.bespin.org/ ENet] - The networking library used by Ace of Spades
-* [http://aoswiki.rakiru.com/webpages/playercount.php Playercount data] - Data log of 0.x and 1.0 player count
-* [http://aoswiki.rakiru.com/webpages/playercount.html Playercount graph] - A line graph of the above data.
+# Other Resources
+* [KVX File Format Specification](https://github.com/piqueserver/aosprotocol/edit/master/index.md) - A mirror of the readme for Slab6 which contains the .kvx file format, the format that the AoS model format is based on
+* [VXL File Format Specification](http://silverspaceship.com/aosmap/aos_file_format.html) - A description of the .vxl file format, the format used for AoS maps
