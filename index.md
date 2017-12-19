@@ -624,7 +624,7 @@ Should always be the next sequence of packets after a **Map Start** packet.
 
 | Field Name | Field Type | Example | Notes                                                                                                                              |
 |------------|------------|---------|------------------------------------------------------------------------------------------------------------------------------------|
-| Map Data   | UByte      | `0`     | [DEFLATE/zlib](http://en.wikipedia.org/wiki/DEFLATE) encoded [http://silverspaceship.com/aosmap/aos_file_format.html AOS map data] |
+| Map Data   | UByte      | `0`     | [DEFLATE/zlib](http://en.wikipedia.org/wiki/DEFLATE) encoded [AOS map data](http://silverspaceship.com/aosmap/aos_file_format.html)|
 
 ## Player Left
 #### Server->Protocol
