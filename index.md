@@ -334,7 +334,7 @@ Set player's team, weapon, etc.
 | blue       | UByte                                                      | `0`     |       |
 | green      | UByte                                                      | `0`     |       |
 | red        | UByte                                                      | `0`     |       |
-| name       | [CP437](http://en.wikipedia.org/wiki/Code_page_437) String | ``      |       |
+| name       | [CP437](http://en.wikipedia.org/wiki/Code_page_437) String | `Deuce` |       |
 
 ## Short Player Data
 Like Existing Player, but with less information.
@@ -385,7 +385,7 @@ Brief description.
 | x position | LE Float                                                   | `0`     |       |
 | y position | LE Float                                                   | `0`     |       |
 | z position | LE Float                                                   | `0`     |       |
-| name       | [CP437](http://en.wikipedia.org/wiki/Code_page_437) String | ``      |       |
+| name       | [CP437](http://en.wikipedia.org/wiki/Code_page_437) String | `Deuce` |       |
 
 ## Block Action
 Sent when a block is placed/destroyed.
@@ -871,7 +871,7 @@ Powerthirst features such as long-name support.
 ## Map Chunk (PT)
 #### Server->Client
 
-This is just a remapping of the [[Ace_of_Spades_Protocol#Map_Chunk Map Chunk]] packet to 2 packets back to stop vanilla clients from connecting.
+This is just a remapping of the [Map Chunk](#map-chunk) packet to 2 packets back to stop vanilla clients from connecting.
 
 | ----------: | -------- |
 | Packet ID   | 17       |
@@ -901,7 +901,7 @@ This is just a remapping of the [[Ace_of_Spades_Protocol#Map_Chunk Map Chunk]] p
 ## Script Chunk (PT)
 #### Server->Client
 
-This is just a remapping of the [[Ace_of_Spades_Protocol#Map_Chunk|Map Chunk]] packet to 2 packets back to stop vanilla clients from connecting.
+This is just a remapping of the [Map_Chunk](#map-chunk) packet to 2 packets back to stop vanilla clients from connecting.
 
 
 | ----------: | --------       |
