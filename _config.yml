@@ -18,8 +18,6 @@ description: > # this means to ignore newlines until "baseurl:"
   This site documents the AoS protocol as well as the extensions
   that have and will been made to it. If you want to propose changes to the
   protocol, open an issue or file a PR against this repo
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 markdown: kramdown
