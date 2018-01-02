@@ -1,24 +1,7 @@
 This page documents Ace of Spades 0.75, the last fully released version of Ace of Spades classic, and 0.76, the last publically available version of Ace of Spades Classic.
 
-[View 1.0 alpha documentation](protocol100a1.html)
-
-# Overview
-[Ace of Spades](http://buildandshoot.com/) uses the [ENet networking
-library](http://enet.bespin.org/Features.html) for all server-client
-communication. The only source of protocol information was the
-[pyspades](http://code.google.com/p/pyspades/) source, which was made a closed
-system at the release of Ace of Spades 1.0. The reason(s) for this is unknown,
-but it is speculated that [Jagex](https://en.wikipedia.org/wiki/Jagex) has
-paid them off, as they now own AoS.
-
-# Versions
-
 Except where otherwise noted, this document applies to .75, the only
 commonly played version.
-
-The Piqueserver and OpenSpades teams have introduced a number changes that are
-backwards compatible with .75. This "version" of the protocol is called 0.75.1
-here
 
 # Connection
 
@@ -48,7 +31,6 @@ the client in the event's data (event.data).
 | 3      | Wrong protocol version       |
 | 4      | Server full                  |
 | 10     | Kicked                       |
-| 20     | Invalid Name (new in 0.75.1) |
 
 Send this magic number as part of the `enet_host_connect(ENetHost, ENetAddress,
 channels, int)` function
