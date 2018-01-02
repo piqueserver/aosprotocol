@@ -11,8 +11,8 @@ reverse engineered to document the protocol.
 
 ## Versions
 
-[View 0.75 (and 0,76) documentation](protocol075.html)
-[View 1.0 alpha documentation](protocol100a1.html)
+ * [0.75 (and 0.76) documentation](protocol075.html)
+ * [1.0 alpha documentation](protocol100a1.html)
 
 ## Extensions
 
