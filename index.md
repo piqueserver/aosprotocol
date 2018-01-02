@@ -876,6 +876,7 @@ has died both of which are sent as reliable packets.
 | Total Size: | 3 bytes  |
 
 | Field Name | Field Type | Example | Notes                       |
+|------------|------------|---------|-----------------------------|
 | player ID  | UByte      | `0`     | Player who's changed weapon |
 | Weapon ID  | UByte      | `0`     | See values in table below   |
 
@@ -888,9 +889,15 @@ has died both of which are sent as reliable packets.
 | 2     | shotgun |
 
 ## Map Cached
-#### 'Client->Server'
+`Client->Server`
 
-TODO.
+| ----------: | -------- |
+| Packet ID   | 31       |
+| Total Size: | 2 bytes  |
+
+| Field Name | Field Type | Example | Notes                       |
+|------------|------------|---------|-----------------------------|
+| Cached     | UByte      | `1`     | The ID of the cached map??  |
 
 # Powerthirst Edition
 
