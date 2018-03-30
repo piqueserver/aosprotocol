@@ -23,9 +23,9 @@ reverse engineered to document the protocol.
 | 2  | `version_get` | Allows servers to request version information        | todo | os, pq       |
 
 ### Implementers legend
- * `os`: [OpenSpades](github.com/yvt/openspades)
- * `pq`: [piqueserver](github.com/piqueserver/piqueserver)
- * `bs`: [BetterSpades](github.com/xtreme8000/BetterSpades)
+ * `os`: [OpenSpades](https://github.com/yvt/openspades)
+ * `pq`: [piqueserver](https://github.com/piqueserver/piqueserver)
+ * `bs`: [BetterSpades](https://github.com/xtreme8000/BetterSpades)
 
 ## Other Protocols
 
