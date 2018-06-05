@@ -29,7 +29,7 @@ reverse engineered to document the protocol.
 
 ## Other Protocols
 
- * Master Server Protocol (TODO)
+ * [Master Server Protocol](protocolmaster.html)
  * Ping Protocol (TODO) (TL;DR: Send a UDP "HELLO" (ASCII) to the port the server is listening on and it will reply)
 
 # Other Resources
