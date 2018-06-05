@@ -29,7 +29,7 @@ The following shorthands are used in this document:
 | CP437 String | String encoded with CP437. `\0` terminated.             |
 
 ## Major update
-*Client &rightarrow; Server*
+*Client -> Server*
 
 Send on server startup or after the map was changed.
 Master server assumes player count is reset back to zero.
@@ -43,7 +43,7 @@ Master server assumes player count is reset back to zero.
 | map         | [CP437](http://en.wikipedia.org/wiki/Code_page_437) String | `normandie`    | *max. 20 bytes* |
 
 ## Count update
-*Client &rightarrow; Server*
+*Client -> Server*
 
 Used to update the master when a player joined or left the server.
 
