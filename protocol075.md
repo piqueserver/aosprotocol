@@ -66,9 +66,7 @@ this byte.
 * [Block Action](#block-action)
 * [Block Line](#block-line)
 * [CTF State](#ctf-state)
-* [Territory](#territory)
-* [Object Territory](#object-territory)
-* [TCState](#tcstate)
+* [TC State](#tc-state)
 * [State Data](#state-data)
 * [Kill Action](#kill-action)
 * [Chat Message](#chat-message)
@@ -505,7 +503,7 @@ data, where the gamemode is sent. It could be considered as part of that
 initial data packet, but as what's sent varies greatly depending on the
 gamemode, it is documented separately.
 
-## TCState
+## TC State
 
 | Field Name                | Field Type                          | Example | Notes
 | territory count           | UByte                               | 16      | Maximum is 16 otherwise the client will crash with 'Invalid memory access'
