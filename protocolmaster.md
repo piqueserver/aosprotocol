@@ -1,5 +1,6 @@
 ## Connection
 
+The protocol is using [ENet](http://enet.bespin.org/) for transfer.
 When you connect, you must send a version number as the initial data.
 
 | Number |
