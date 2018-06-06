@@ -29,8 +29,8 @@ reverse engineered to document the protocol.
 
 ## Other Protocols
 
- * Master Server Protocol (TODO)
- * Ping Protocol (TODO) (TL;DR: Send a UDP "HELLO" (ASCII) to the port the server is listening on and it will reply)
+ * [Master Server Protocol](protocolmaster.html)
+ * [Ping Protocol](protocolping.html)
 
 # Other Resources
 * [KVX File Format Specification](https://web.archive.org/web/20100102023608/http://mystaddict.tlayeh.com/Computer%20Camp/Slab6/slab6.txt) - An archive of the mirror of the readme for Slab6 which contains the .kvx file format, the format that the AoS model format is based on

@@ -19,6 +19,9 @@ player.
 | 3      | 0.75        |
 | 4      | 0.76        |
 
+Send this magic number as part of the `enet_host_connect(ENetHost, ENetAddress,
+channels, int)` function
+
 ## Disconnect Reasons
 
 Whenever the connection is closed by the server, there is a reason supplied to
@@ -31,9 +34,6 @@ the client in the event's data (event.data).
 | 3      | Wrong protocol version       |
 | 4      | Server full                  |
 | 10     | Kicked                       |
-
-Send this magic number as part of the `enet_host_connect(ENetHost, ENetAddress,
-channels, int)` function
 
 ## About Coordinates
 
@@ -66,9 +66,7 @@ this byte.
 * [Block Action](#block-action)
 * [Block Line](#block-line)
 * [CTF State](#ctf-state)
-* [Territory](#territory)
-* [Object Territory](#object-territory)
-* [TCState](#tcstate)
+* [TC State](#tc-state)
 * [State Data](#state-data)
 * [Kill Action](#kill-action)
 * [Chat Message](#chat-message)
@@ -309,7 +307,7 @@ Spawns a grenade with the given information.
 | z velocity  | LE Float   | `0`     |       |
 
 ## Set Tool
-Sets a player's current;y equipped tool/weapon.
+Sets a player's currently equipped tool/weapon.
 
 
 |------------:|---------|
@@ -384,7 +382,7 @@ Like Existing Player, but with less information.
 | weapon     | UByte      | `0`     |       |
 
 ## Move Object
-Brief description.
+This packet is used to move various game objects like tents, intels and even grenades. When moving grenades in TC mode the voxlap client has a bug that changes grenades' models to small tents.
 
 | ----------: | -------- |
 | Packet ID   | 11       |
@@ -401,7 +399,7 @@ Brief description.
 | z position | LE Float   | `0`     |             |
 
 ## Create Player
-Brief description.
+Send on respawn of a player.
 
 | ----------: | ------- |
 | Packet ID   | 12      |
@@ -439,15 +437,15 @@ Sent when a block is placed/destroyed.
 
 #### Fields
 
-| Value | Type              |
-| ----- | ----------------- |
-| 0     | build             |
-| 1     | (bullet?) destroy |
-| 2     | spade destroy     |
-| 3     | grenade destroy   |
+| Value | Type                                  | Notes                                               |
+| ----- | ------------------------------------- | --------------------------------------------------- |
+| 0     | build                                 | places a block with the player's selected color     |
+| 1     | bullet and spade(left button) destroy |                                                     |
+| 2     | spade(right button) destroy           | destroys 3 blocks, one above and below additionally |
+| 3     | grenade destroy                       | destroys all blocks within an 3x3x3 area            |
 
 ## Block Line
-Create a line of blocks between 2 points.
+Create a line of blocks between 2 points. The block color is defined by the `Set Color` packet. 
 
 | ----------: | -------- |
 | Packet ID   | 14       |
@@ -505,14 +503,7 @@ data, where the gamemode is sent. It could be considered as part of that
 initial data packet, but as what's sent varies greatly depending on the
 gamemode, it is documented separately.
 
-## Territory
-Brief description.
-
-## Object Territory
-Brief description.
-
-
-## TCState
+## TC State
 
 | Field Name                | Field Type                          | Example | Notes
 | territory count           | UByte                               | 16      | Maximum is 16 otherwise the client will crash with 'Invalid memory access'
@@ -538,6 +529,7 @@ the packet after the gamemode id portion.
 
 | Field Name             | Field Type     | Example   | Notes                     |
 | ---------------------- | -------------- | --------- | ------------------------- |
+| player id              | UByte          | 0         |                           |
 | fog (blue)             | UByte          | 0         |                           |
 | fog (green)            | UByte          | 0         |                           |
 | fog (red)              | UByte          | 0         |                           |
@@ -600,11 +592,11 @@ Reasonable limits must placed on length and frequency of chat messages.
 
 #### Fields
 
-| Value | Type         |
-|-------|--------------|
-| 0     | CHAT\_ALL    |
-| 1     | CHAT\_TEAM   |
-| 2     | CHAT\_SYSTEM |
+| Value | Type         | voxlap default color            |
+| ----- | ------------ | ------------------------------- |
+| 0     | CHAT\_ALL    | white                           |
+| 1     | CHAT\_TEAM   | team color, black for spectator |
+| 2     | CHAT\_SYSTEM | red                             |
 
 ## Map Start (0.75)
 #### Server->Client
@@ -708,9 +700,9 @@ Display the TC progress bar.
 
 | Field Name        | Field Type | Example | Notes                                                                                            |
 |-------------------|------------|---------|--------------------------------------------------------------------------------------------------|
-| entity ID         | UByte      | `0`     | The ID of the tent entity(?)                                                                     |
+| entity ID         | UByte      | `0`     | The ID of the tent entity                                                                     |
 | capturing team ID | UByte      | `1`     |                                                                                                  |
-| rate              | Byte       | `2`     | Used by the client for interpolation(?) One per team member capturing (minus enemy team members) |
+| rate              | Byte       | `2`     | Used by the client for interpolation, one per team member capturing (minus enemy team members). One rate unit is 5% of progress per second. |
 | progress          | LE Float   | `0.5`   | In range [0,1]                                                                                   |
 
 ## Intel Capture
@@ -877,9 +869,9 @@ has died both of which are sent as reliable packets.
 | Packet ID   | 31       |
 | Total Size: | 2 bytes  |
 
-| Field Name | Field Type | Example | Notes                       |
-|------------|------------|---------|-----------------------------|
-| Cached     | UByte      | `1`     | The ID of the cached map??  |
+| Field Name | Field Type | Example | Notes                        |
+|------------|------------|---------|------------------------------|
+| Cached     | UByte      | `1`     | `1` if cached, `0` otherwise |
 
 # Powerthirst Edition
 
