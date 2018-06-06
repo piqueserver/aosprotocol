@@ -594,7 +594,7 @@ Reasonable limits must placed on length and frequency of chat messages.
 
 #### Fields
 
-| Value | Type         | Color                           |
+| Value | Type         | voxlap default color            |
 | ----- | ------------ | ------------------------------- |
 | 0     | CHAT\_ALL    | white                           |
 | 1     | CHAT\_TEAM   | team color, black for spectator |
