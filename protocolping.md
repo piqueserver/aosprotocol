@@ -2,7 +2,11 @@
 
 This protocol is used to measure the connection delay (latency/ping) between your local computer and a server.
 
-You will need to measure the actual time difference yourself.
+You will need to measure the actual time difference yourself:
+
+```
+ping = dt/2
+```
 
 Open up a raw UDP connection to the server's port, and send a packet.
 
