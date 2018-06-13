@@ -34,4 +34,4 @@ reverse engineered to document the protocol.
 
 # Other Resources
 * [KVX File Format Specification](https://web.archive.org/web/20100102023608/http://mystaddict.tlayeh.com/Computer%20Camp/Slab6/slab6.txt) - An archive of the mirror of the readme for Slab6 which contains the .kvx file format, the format that the AoS model format is based on
-* [VXL File Format Specification](http://silverspaceship.com/aosmap/aos_file_format.html) - A description of the .vxl file format, the format used for AoS maps ([mirror](aos_file_format.html))
+* [VXL File Format Specification](mapformat.html) - A description of the .vxl file format, the format used for AoS maps<br />([original](http://silverspaceship.com/aosmap/aos_file_format.html), [mirror](aos_file_format.html))
