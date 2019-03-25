@@ -1,6 +1,7 @@
 ## Connection
 
-This protocol is used to measure the connection delay (latency/ping) between your local computer and a server.
+This protocol is used to measure the connection delay (latency/ping) between your local computer and a server
+and to find servers on your local network.
 
 You will need to measure the actual time difference yourself:
 
