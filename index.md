@@ -16,16 +16,42 @@ reverse engineered to document the protocol.
 
 ## Extensions
 
-| ID | String ID     | Description                                          | Link | Implementers |
-|----|---------------|------------------------------------------------------|------|--------------|
-| 0  | `unicode`     | Strings can contain unicode if prefixed with `0xFF`  | todo | os           |
-| 1  | `powerthirst` | Large modification sadly used only for a single game | todo |              |
-| 2  | `version_get` | Allows servers to request version information        | todo | os, pq       |
+The 0.75 protocol supports extensions, which allow adding new packets as well as
+querying the support for client and server functionality.
 
-### Implementers legend
- * `os`: [OpenSpades](https://github.com/yvt/openspades)
- * `pq`: [piqueserver](https://github.com/piqueserver/piqueserver)
- * `bs`: [BetterSpades](https://github.com/xtreme8000/BetterSpades)
+### Extensions providing packets
+
+Packetful extensions are extensions that can be used to send packets. Each
+extension has 256 packet types reserved for itself. This is useful for adding
+functionality that requires sending additional information from or to the client.
+
+| ID | Name          | Description                                          | Link | Implementers |
+|----|---------------|------------------------------------------------------|------|--------------|
+
+
+### Packetless Extensions
+
+Packetless extensions are extensions that can not send any packets. This is useful
+for signalling support for additional values in or certain behaviours related to
+existing packets.
+
+Packetless extensions exist as an artefact of the implementation of extensions.
+As the space reserved for extension packets is limited, values above 192 do not
+have any packet types left.
+
+| ID  | Name          | Description                                           | Link |
+|-----|---------------|-------------------------------------------------------|------|
+| 192 | Player Limit  | Support for up to 256 players                         | TODO |
+| 193 | Message Types | Additional message types such as warnings and satuses | TODO [#14](https://github.com/piqueserver/aosprotocol/issues/14) |
+| 194 | Kick Reason   | Repurposes the chat to send a disconnect reason text  | TODO |
+
+### Implementers
+ * [OpenSpades](https://github.com/yvt/openspades)
+ * [piqueserver](https://github.com/piqueserver/piqueserver)
+ * [BetterSpades](https://github.com/xtreme8000/BetterSpades)
+
+Links to the respective projects pages that detail the extensions evailable in
+each version should be linked here.
 
 ## Other Protocols
 
