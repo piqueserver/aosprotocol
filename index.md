@@ -25,8 +25,9 @@ Packetful extensions are extensions that can be used to send packets. Each
 extension has 256 packet types reserved for itself. This is useful for adding
 functionality that requires sending additional information from or to the client.
 
-| ID | Name          | Description                                          | Link | Implementers |
-|----|---------------|------------------------------------------------------|------|--------------|
+| ID | Name          | Description                                          | Link |
+|----|---------------|------------------------------------------------------|------|
+|    |               |                                                      |      |
 
 
 ### Packetless Extensions
