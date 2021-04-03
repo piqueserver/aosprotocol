@@ -550,7 +550,7 @@ the packet after the gamemode id portion.
 Notify the client of a player's death.
 
 | ----------: | -------- |
-| Packet ID   | 18       |
+| Packet ID   | 16       |
 | Total Size: | 5 bytes  |
 
 | Field Name       | Field Type | Example | Notes                 |
