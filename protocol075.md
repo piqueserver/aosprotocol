@@ -555,8 +555,8 @@ Notify the client of a player's death.
 
 | Field Name       | Field Type | Example | Notes                 |
 |------------------|------------|---------|-----------------------|
-| player ID        | UByte      | 12      | Player that died      |
-| killer ID        | UByte      | 8       |                       |
+| killer ID        | UByte      | 12      | Player that shot      |
+| player ID        | UByte      | 8       | Player that got shot  |
 | kill type        | UByte      | 0       | See table below       |
 | respawn time     | UByte      | 1       | Seconds until respawn |
 
