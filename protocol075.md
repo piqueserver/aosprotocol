@@ -752,9 +752,9 @@ Sent when a player dropped the intel. This will update the intel position on the
 
 | Field Name | Field Type | Example | Notes                              |
 | player ID  | UByte      | `0`     | ID of the player who dropped intel |
-| x position | LE Int     | `32.0`  |                                    |
-| y position | LE Int     | `32.0`  |                                    |
-| z position | LE Int     | `32.0`  |                                    |
+| x position | LE Float   | `32.0`  |                                    |
+| y position | LE Float   | `32.0`  |                                    |
+| z position | LE Float   | `32.0`  |                                    |
 
 ## Restock
 #### Server->Protocol
