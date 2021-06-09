@@ -746,7 +746,7 @@ Sent when a player dropped the intel. This will update the intel position on the
 
 | ----------: | -------- |
 | Packet ID   | 25       |
-| Total Size: | 13 bytes |
+| Total Size: | 14 bytes |
 
 #### Fields
 
