@@ -115,7 +115,7 @@ This packet is used to set the players position.
 
 |-----------:|----------|
 |Packet ID:  |  0       |
-|Total Size: | 12 bytes |
+|Total Size: | 13 bytes |
 
 |Field Name|Field Type|Example|Notes|
 |---------:|----------|-------|-----|
