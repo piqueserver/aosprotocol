@@ -452,6 +452,7 @@ Create a line of blocks between 2 points. The block color is defined by the `Set
 | Total Size: | 26 bytes |
 
 | Field Name       | Field Type      | Example | Notes |
+| ---------------- | --------------- | ------- | ----- |
 | player id        | UByte           | `0`     |       |
 | start x position | LE Int          | `0`     |       |
 | start y position | LE Int          | `0`     |       |
@@ -470,6 +471,7 @@ Brief description.
 #### Fields
 
 | Field Name             | Field Type    | Example | Notes                                                                |
+| ---------------------- | ------------- | ------- | -------------------------------------------------------------------- |
 | team 1 score           | UByte         | `0`     |                                                                      |
 | team 2 score           | UByte         | `0`     |                                                                      |
 | capture limit          | UByte         | `0`     |                                                                      |
@@ -505,9 +507,10 @@ gamemode, it is documented separately.
 
 ## TC State
 
-| Field Name                | Field Type                          | Example | Notes
-| territory count           | UByte                               | 16      | Maximum is 16 otherwise the client will crash with 'Invalid memory access'
-| Array[] of territory data | LE Float, LE Float, LE Float, UByte |         | See table below
+| Field Name                | Field Type                          | Example | Notes                                                                      |
+| ------------------------- | ----------------------------------- | ------- | -------------------------------------------------------------------------- |
+| territory count           | UByte                               | 16      | Maximum is 16 otherwise the client will crash with 'Invalid memory access' |
+| Array[] of territory data | LE Float, LE Float, LE Float, UByte |         | See table below                                                            |
 
 This packet is not a complete packet, as it is only sent after the initial
 data, where the gamemode is sent. It could be considered as part of that
