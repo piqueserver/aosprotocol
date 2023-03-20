@@ -32,25 +32,16 @@ General extension packet structure:
 ### ExtInfo Packet
 
 * Packet ID: 60
-* Total size: `2+2*n`
+* Total size: `2+2*length`
 
-| Field name | Field type   | Notes                          |
-| ---------- | ------------ | ------------------------------ |
-| length     | UByte        | `length+1` entries will follow |
-| entries    | ExtInfoEntry | see below                      |
+| Field name | Field type   | Notes                        |
+| ---------- | ------------ | ---------------------------- |
+| length     | UByte        | `length` entries will follow |
+| entries    | ExtInfoEntry | see below                    |
 
 **ExtInfoEntry**
 
-| Field name | Field type | Notes         |
-| ---------- | ---------- | ------------- |
-| ext. ID    | UByte      | see #Overview |
-| version    | UByte      | starting at 0 |
-
-## Protocol Flow
-
-The server MUST send an `ExtInfo` packet on connect. The client can store
-the list of extensions and MUST reply with an `ExtInfo` packet that lists
-the extensions it supports.
-
-It SHOULD omit any extensions that the server does not support from it's
-reply.
+| Field name | Field type | Notes               |
+| ---------- | ---------- | ------------------- |
+| ext. ID    | UByte      | see #Overview       |
+| version    | UByte      | Usually starts at 1 |
