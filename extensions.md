@@ -8,9 +8,9 @@ registered. We differentiate between two types of packets:
 *Those that:*
 
 | Type          | Purpose                               | Extension id range |
-| ------------- | ------------------------------------- | --------------- |
-| `HAS_PACKETS` | introduce new packets to the protocol | 0-191           |
-| `PACKETLESS`  | don't use and need any packets        | 192-255         |
+| ------------- | ------------------------------------- | ------------------ |
+| `HAS_PACKETS` | introduce new packets to the protocol | 0-191              |
+| `PACKETLESS`  | don't use and need any packets        | 192-255            |
 
 Each extension is given one legacy packet id equal to `64+extension_id`.
 For `PACKETLESS` extensions this would mean that their packet ids are out
