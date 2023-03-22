@@ -45,3 +45,13 @@ General extension packet structure:
 | ---------- | ---------- | ------------------- |
 | ext. ID    | UByte      | see #Overview       |
 | version    | UByte      | Usually starts at 1 |
+
+## Protocol Flow
+
+The server should send an `ExtInfo` packet (optimally) after the Version Info response has been received to compatible clients
+(OpenSpades versions > 0.1.3),
+assuming it supports any. The client can store the list of extensions for later use and should
+reply with an `ExtInfo` packet that lists the extensions it supports (if it does actually support any).
+
+The client can omit any extensions that the server does not support from its
+reply, but this is not necessary as the server can simply ignore them itself.
