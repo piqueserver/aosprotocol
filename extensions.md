@@ -49,7 +49,7 @@ General extension packet structure:
 ## Protocol Flow
 
 The server should send an `ExtInfo` packet (optimally) after the Version Info response has been received to compatible clients
-(OpenSpades versions > 0.1.3),
+(OpenSpades versions > 0.1.3, see https://github.com/piqueserver/piqueserver/issues/504),
 assuming it supports any. The client can store the list of extensions for later use and should
 reply with an `ExtInfo` packet that lists the extensions it supports (if it does actually support any).
 
