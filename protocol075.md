@@ -84,7 +84,7 @@ this byte.
 * [Weapon Reload](#weapon-reload)
 * [Change Team](#change-team)
 * [Change Weapon](#change-weapon)
-* [Map Cached](#map-cached)
+* [Map Cached (0.76)](#map-cached-076)
 * [Powerthirst Edition](#powerthirst-edition)
 * [Map Start (PT)](#map-start-pt)
 * [Map Chunk (PT)](#map-chunk-pt)
@@ -868,7 +868,7 @@ has died both of which are sent as reliable packets.
 | 1     | smg     |
 | 2     | shotgun |
 
-## Map Cached
+## Map Cached (0.76)
 `Client->Server`
 
 | ----------: | -------- |
