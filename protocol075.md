@@ -84,7 +84,7 @@ this byte.
 * [Weapon Reload](#weapon-reload)
 * [Change Team](#change-team)
 * [Change Weapon](#change-weapon)
-* [Map Cached](#map-cached)
+* [Map Cached (0.76)](#map-cached-076)
 * [Extra Packets](#extra-packets)
 * [Version Handshake Init (EP)](#version-handshake-init-ep)
 * [Version Handshake Response (EP)](#version-handshake-response-ep)
@@ -570,6 +570,9 @@ Notify the client of a player's death.
 
 #### Fields
 
+If sent any value higher than 6 in Ace of Spades (voxlap), game
+will display the kill message as "Derpy Kill Message"
+
 | Value | Type                 |
 |-------|----------------------|
 | 0     | WEAPON (body, limbs) |
@@ -870,7 +873,7 @@ has died both of which are sent as reliable packets.
 | 1     | smg     |
 | 2     | shotgun |
 
-## Map Cached
+## Map Cached (0.76)
 `Client->Server`
 
 | ----------: | -------- |
