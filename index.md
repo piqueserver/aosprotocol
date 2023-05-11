@@ -3,7 +3,7 @@ the extensions made by the community.
 
 # Overview
 [Ace of Spades](http://buildandshoot.com/) uses the [ENet networking
-library](http://enet.bespin.org/Features.html) for all server-client
+library](http://sauerbraten.org/enet/) for all server-client
 communication. The initial source for the protocol information was the original
 [pyspades](http://code.google.com/p/pyspades/) source code, for which the
 source for 1.0 was not released. Nonetheless, the 1.0 alpha client has been
