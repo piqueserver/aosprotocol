@@ -16,7 +16,7 @@ of range for the UByte used to store IDs (UByte values range from 0 to 255).
 Therefore, it cannot support packets. An example of a `PACKETLESS` extension
 would be the [Message Types](https://github.com/piqueserver/aosprotocol/issues/14)
 extension, with an extension ID of 193. Note that OpenSpades' UTF-8 extension
-used to be used here as the example, but this extension actually does NOT use
+used to be here as the example, but this extension actually does not use
 `ExtInfo`! Instead, UTF-8 encoded messages are prefixed with a 0xFF byte.
 
 Each extension packet contains 1 byte in its data after the packet ID, which is a
