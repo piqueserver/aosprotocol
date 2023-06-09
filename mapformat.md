@@ -35,7 +35,7 @@ The file is described here as a binary file of bytes (so there are no endianness
 
 The file contains no header. The only way to detect that a file is an AoS map of type version 1 is to check the first 4 bytes and see if they are a legitimate span descriptor (see below).
 
-The file stores the column data for each of the 2D map squares. These are stored left-to-right, top-to-bottom; the first column stored is `(0,0)`, the 511th column stored is `(511,0)`, and the 512th column stored is `(0,1)`.
+The file stores the column data for each of the 2D map squares. These are stored left-to-right, top-to-bottom; the first column stored is `(0,0)`, the 512th column stored is `(511,0)`, and the 513th column stored is `(0,1)`.
 
 #### Column data
 Each column consists of a variable number of "spans", where each span contains several runs of voxel data. The spans are encoded using explicit positions rather than lengths; we will refer to these positions as "heights". Heights are measured starting from z=0, which is the highest position in the sky, to z=63, which is the lowest position (and must always be solid--it behaves as water). Blocks at z=62 which are solid are indestructible; they represent the lowest level of non-water ground.
