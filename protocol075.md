@@ -788,9 +788,12 @@ Set the colour of a player's fog.
 
 #### Fields
 
-| Field Name | Field Type | Example      | Notes        |
-| ---------- | ---------- | ------------ | ------------ |
-| fog color  | UInt       | `0h00fefefe` | BGRA encoded |
+| Field Name | Field Type | Example      | Notes  |
+| ---------- | ---------- | ------------ | ------ |
+| Alpha      | UByte      | `0`          | Unused |
+| Blue       | UByte      | `255`        |        |
+| Green      | UByte      | `232`        |        |
+| Red        | UByte      | `128`        |        |
 
 ## Weapon Reload
 #### Client-->Server->Protocol
