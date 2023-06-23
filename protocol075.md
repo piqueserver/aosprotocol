@@ -816,8 +816,8 @@ other clients.
 ## Change Team
 #### Client-->Server-->Protocol-->Kill Action & Create Player
 
-Sent by the client when the player changes team. Is not relayed to all clients
-directly, but instead uses **Kill Action**
+Sent by the client when the player changes team. It is not relayed to clients
+directly, but instead uses **Kill Action** (optionally)
 then **Create Player** to inform other
 clients of the team change.
 
@@ -827,46 +827,46 @@ clients of the team change.
 
 #### Fields
 
-| Field Name | Field Type | Example | Notes                     |
-|------------|------------|---------|---------------------------|
-| player ID  | UByte      | `0`     | Player who changed team   |
-| Team ID    | Byte       | `0`     | See values in table below |
+| Field Name | Field Type | Example | Notes                       |
+|------------|------------|---------|-----------------------------|
+| Player ID  | UByte      | `0`     | Player who has changed team |
+| Team ID    | Byte       | `0`     | See values in table below   |
 
 #### Team IDs
 
-| Value | Type      |
-|------:|-----------|
-| -1    | spectator |
-| 0     | blue      |
-| 1     | green     |
+| Value    | Type                |
+|---------:|---------------------|
+| -1 (255) | Spectator           |
+| 0        | First team (Blue)   |
+| 1        | Second team (Green) |
 
 ## Change Weapon
-#### Client-->Server-->Protocol-->Kill Action & Change Weapon
+#### Client-->Server-->Protocol-->Kill Action & Create Player
 
-Sent by the client when player changes weapon, and relayed to clients by server
-after `filter_visibility` logic is applied.
-
-Receiving clients will also be sent a preceding
-**Kill Action** to inform them the player
-has died both of which are sent as reliable packets.
-
+Sent by the client when the player changes weapon. It SHOULD NOT sent to clients,
+but pyspades and all known derivatives send the packet with invalid parameters
+immediately before the kill action is sent (if any). All packets of this type sent from
+the server SHOULD be ignored.
+Otherwise, the server sends **Kill Action** (optionally)
+then **Create Player** to inform other
+clients of the weapon change.
 
 | ----------: | -------- |
 | Packet ID   | 30       |
 | Total Size: | 3 bytes  |
 
-| Field Name | Field Type | Example | Notes                       |
-|------------|------------|---------|-----------------------------|
-| player ID  | UByte      | `0`     | Player who's changed weapon |
-| Weapon ID  | UByte      | `0`     | See values in table below   |
+| Field Name | Field Type | Example | Notes                         |
+|------------|------------|---------|-------------------------------|
+| Player ID  | UByte      | `0`     | Player who has changed weapon |
+| Weapon ID  | UByte      | `0`     | See values in table below     |
 
 #### Weapon ID
 
 | Value | Type    |
 |-------|---------|
-| 0     | rifle   |
-| 1     | smg     |
-| 2     | shotgun |
+| 0     | Rifle   |
+| 1     | SMG     |
+| 2     | Shotgun |
 
 ## Map Cached (0.76)
 `Client->Server`
