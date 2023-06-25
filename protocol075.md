@@ -113,9 +113,9 @@ The following shorthands are used in this document:
 
 This packet is used to set the players position.
 
-|-----------:|----------|
-|Packet ID:  |  0       |
-|Total Size: | 13 bytes |
+| ------------: | ---------- |
+| Packet ID:    | 0          |
+| Total Size:   | 13 bytes   |
 
 |Field Name|Field Type|Example|Notes|
 |---------:|----------|-------|-----|
@@ -126,9 +126,9 @@ This packet is used to set the players position.
 ## Orientation Data
 This packet is used to set the players orientation.
 
-|-----------:|----------|
-|Packet ID   |  1       |
-|Total Size: | 13 bytes |
+| -----------: |----------|
+| Packet ID    | 1        |
+| Total Size:  | 13 bytes |
 
 #### Fields
 
@@ -357,7 +357,7 @@ Set player's team, weapon, etc.
 | Field Name | Field Type                                                 | Example | Notes |
 |------------|------------------------------------------------------------|---------|-------|
 | player ID  | UByte                                                      | `0`     |       |
-| team       | Byte                                                       | `0`     |       |
+| team       | UByte                                                      | `0`     |       |
 | weapon     | UByte                                                      | `0`     |       |
 | held item  | UByte                                                      | `0`     |       |
 | kills      | LE UInt                                                    | `0`     |       |
@@ -378,7 +378,7 @@ Like Existing Player, but with less information.
 | Field Name | Field Type | Example | Notes |
 |------------|------------|---------|-------|
 | player ID  | UByte      | `0`     |       |
-| team       | Byte       | `0`     |       |
+| team       | UByte      | `0`     |       |
 | weapon     | UByte      | `0`     |       |
 
 ## Move Object
@@ -411,7 +411,7 @@ Send on respawn of a player.
 |------------|------------------------------------------------------------|---------|-------|
 | player id  | UByte                                                      | `0`     |       |
 | weapon     | UByte                                                      | `0`     |       |
-| team       | Byte                                                       | `0`     |       |
+| team       | UByte                                                      | `0`     |       |
 | x position | LE Float                                                   | `0`     |       |
 | y position | LE Float                                                   | `0`     |       |
 | z position | LE Float                                                   | `0`     |       |
@@ -706,7 +706,7 @@ Display the TC progress bar.
 
 | Field Name        | Field Type | Example | Notes                                                                                            |
 |-------------------|------------|---------|--------------------------------------------------------------------------------------------------|
-| entity ID         | UByte      | `0`     | The ID of the tent entity                                                                     |
+| entity ID         | UByte      | `0`     | The ID of the tent entity                                                                        |
 | capturing team ID | UByte      | `1`     |                                                                                                  |
 | rate              | Byte       | `2`     | Used by the client for interpolation, one per team member capturing (minus enemy team members). One rate unit is 5% of progress per second. |
 | progress          | LE Float   | `0.5`   | In range [0,1]                                                                                   |
@@ -803,7 +803,7 @@ other clients.
 
 | ----------: | -------- |
 | Packet ID   | 28       |
-| Total Size: | 4 bytes |
+| Total Size: | 4 bytes  |
 
 #### Fields
 
@@ -830,13 +830,13 @@ clients of the team change.
 | Field Name | Field Type | Example | Notes                       |
 |------------|------------|---------|-----------------------------|
 | Player ID  | UByte      | `0`     | Player who has changed team |
-| Team ID    | Byte       | `0`     | See values in table below   |
+| Team ID    | UByte      | `0`     | See values in table below   |
 
 #### Team IDs
 
 | Value    | Type                |
 |---------:|---------------------|
-| -1 (255) | Spectator           |
+| 255      | Spectator           |
 | 0        | First team (Blue)   |
 | 1        | Second team (Green) |
 
