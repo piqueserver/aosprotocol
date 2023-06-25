@@ -119,9 +119,9 @@ This packet is used to set the players position.
 
 |Field Name|Field Type|Example|Notes|
 |---------:|----------|-------|-----|
-|        x | LE Float |  `0`  |     |
-|        y | LE Float |  `0`  |     |
-|        z | LE Float |  `0`  |     |
+|        X | LE Float |  `0`  |     |
+|        Y | LE Float |  `0`  |     |
+|        Z | LE Float |  `0`  |     |
 
 ## Orientation Data
 This packet is used to set the players orientation.
@@ -134,9 +134,9 @@ This packet is used to set the players orientation.
 
 |Field Name|Field Type|Example|Notes|
 |---------:|----------|-------|-----|
-|        x | LE Float |  `0`  |     |
-|        y | LE Float |  `0`  |     |
-|        z | LE Float |  `0`  |     |
+|        X | LE Float |  `0`  |     |
+|        Y | LE Float |  `0`  |     |
+|        Z | LE Float |  `0`  |     |
 
 ## World Update (0.75)
 Updates position and orientation of all players. Always sends data for 32
@@ -162,26 +162,26 @@ players, with empty slots being all 0 (position: [0,0,0], orientation:
 
 | Field Name    | Field Type | Example | Notes             |
 |---------------|------------|---------|-------------------|
-| x position    | LE Float   | `0`     | 0 for non-players |
-| y position    | LE Float   | `0`     | 0 for non-players |
-| z position    | LE Float   | `0`     | 0 for non-players |
-| x orientation | LE Float   | `0`     | 0 for non-players |
-| y orientation | LE Float   | `0`     | 0 for non-players |
-| z orientation | LE Float   | `0`     | 0 for non-players |
+| X position    | LE Float   | `0`     | 0 for non-players |
+| Y position    | LE Float   | `0`     | 0 for non-players |
+| Z position    | LE Float   | `0`     | 0 for non-players |
+| X orientation | LE Float   | `0`     | 0 for non-players |
+| Y orientation | LE Float   | `0`     | 0 for non-players |
+| Z orientation | LE Float   | `0`     | 0 for non-players |
 
 ## World Update (0.76)
 Updates position and orientation of all players. Unlike 0.75, this only sends
 information for the necessary players.
 
-| -----------: | ----------    |
+| -----------: | ------------- |
 | Packet ID    | 2             |
 | Total Size:  | 1 + 25n bytes |
 
 #### Fields
 
-| Field Name                         | Field Type                                     | Example | Notes                    |
-|------------------------------------|------------------------------------------------|---------|--------------------------|
-| players positions and orientations | Array[] of Player Position Data, variable size |         | See below table for data |
+| Field Name                        | Field Type                                     | Example | Notes                    |
+|-----------------------------------|------------------------------------------------|---------|--------------------------|
+| Player positions and orientations | Array[] of Player Position Data, variable size |         | See below table for data |
 
 #### 'Player Position Data'
 
@@ -192,13 +192,13 @@ information for the necessary players.
 
 | Field Name    | Field Type | Example | Notes |
 |---------------|------------|---------|-------|
-| player ID     | UByte      | `0`     |       |
-| x position    | LE Float   | `0`     |       |
-| y position    | LE Float   | `0`     |       |
-| z position    | LE Float   | `0`     |       |
-| x orientation | LE Float   | `0`     |       |
-| y orientation | LE Float   | `0`     |       |
-| z orientation | LE Float   | `0`     |       |
+| Player ID     | UByte      | `0`     |       |
+| X position    | LE Float   | `0`     |       |
+| Y position    | LE Float   | `0`     |       |
+| Z position    | LE Float   | `0`     |       |
+| X orientation | LE Float   | `0`     |       |
+| Y orientation | LE Float   | `0`     |       |
+| Z orientation | LE Float   | `0`     |       |
 
 ## Input Data
 Contains the key-states of a player, packed into a byte.
@@ -211,24 +211,24 @@ Contains the key-states of a player, packed into a byte.
 
 | Field Name | Field Type | Example | Notes                                                                 |
 |------------|------------|---------|-----------------------------------------------------------------------|
-| player ID  | UByte      | `0`     |                                                                       |
-| key states | UByte      | `0`     | Each bit in the byte represents a key, as defined in the table below. |
+| Player ID  | UByte      | `0`     |                                                                       |
+| Key states | UByte      | `0`     | Each bit in the byte represents a key, as defined in the table below. |
 
 #### Key States:
 
 | Placement | Key    |
 | --------- | ------ |
-| 1         | up     |
-| 2         | down   |
-| 3         | left   |
-| 4         | right  |
-| 5         | jump   |
-| 6         | crouch |
-| 7         | sneak  |
-| 8         | sprint |
+| 1         | Up     |
+| 2         | Down   |
+| 3         | Left   |
+| 4         | Right  |
+| 5         | Jump   |
+| 6         | Crouch |
+| 7         | Sneak  |
+| 8         | Sprint |
 
 ## Weapon Input
-Contains the weapon input state(?).
+Contains the weapon input state.
 
 |------------:|---------|
 | Packet ID   | 4       |
@@ -236,8 +236,8 @@ Contains the weapon input state(?).
 
 | Field Name   | Field Type | Example | Notes                                                                                        |
 |--------------|------------|---------|----------------------------------------------------------------------------------------------|
-| player ID    | UByte      | `0`     |                                                                                              |
-| weapon input | UByte      | `0`     | The lowest bit represents the primary fire, the second lowest represents the secondary fire. |
+| Player ID    | UByte      | `0`     |                                                                                              |
+| Weapon input | UByte      | `0`     | The lowest bit represents the primary fire, the second lowest represents the secondary fire. |
 
 ## Hit Packet
 #### Client-to-Server
@@ -255,18 +255,18 @@ wrong way, etc).
 
 | Field Name    | Field Type | Example | Notes                     |
 |---------------|------------|---------|---------------------------|
-| player ID hit | UByte      | `0`     |                           |
-| hit type      | UByte      | `0`     | See values in table below |
+| Player ID hit | UByte      | `0`     |                           |
+| Hit type      | UByte      | `0`     | See values in table below |
 
 #### Hit Types
 
 | Value | Type  |
 | ----- | ----- |
-| 0     | torso |
-| 1     | head  |
-| 2     | arms  |
-| 3     | legs  |
-| 4     | melee |
+| 0     | Torso |
+| 1     | Head  |
+| 2     | Arms  |
+| 3     | Legs  |
+| 4     | Melee |
 
 ## Set HP
 #### Server-to-Client
@@ -281,10 +281,10 @@ Sent to the client when hurt.
 | Field Name        | Field Type | Example | Notes                |
 |-------------------|------------|---------|----------------------|
 | HP                | UByte      | `0`     |                      |
-| type              | UByte      | `0`     | 0 = fall, 1 = weapon |
-| source x position | LE Float   | `0`     |                      |
-| source y position | LE Float   | `0`     |                      |
-| source z position | LE Float   | `0`     |                      |
+| Type              | UByte      | `0`     | 0 = fall, 1 = weapon |
+| Source X position | LE Float   | `0`     |                      |
+| Source Y position | LE Float   | `0`     |                      |
+| Source Z position | LE Float   | `0`     |                      |
 
 ## Grenade Packet
 Spawns a grenade with the given information.
@@ -297,14 +297,14 @@ Spawns a grenade with the given information.
 
 | Field Name  | Field Type | Example | Notes |
 |-------------|------------|---------|-------|
-| player ID   | UByte      | `0`     |       |
-| fuse length | LE Float   | `0`     |       |
-| x position  | LE Float   | `0`     |       |
-| y position  | LE Float   | `0`     |       |
-| z position  | LE Float   | `0`     |       |
-| x velocity  | LE Float   | `0`     |       |
-| y velocity  | LE Float   | `0`     |       |
-| z velocity  | LE Float   | `0`     |       |
+| Player ID   | UByte      | `0`     |       |
+| Fuse length | LE Float   | `0`     |       |
+| X position  | LE Float   | `0`     |       |
+| Y position  | LE Float   | `0`     |       |
+| Z position  | LE Float   | `0`     |       |
+| X velocity  | LE Float   | `0`     |       |
+| Y velocity  | LE Float   | `0`     |       |
+| Z velocity  | LE Float   | `0`     |       |
 
 ## Set Tool
 Sets a player's currently equipped tool/weapon.
@@ -318,17 +318,17 @@ Sets a player's currently equipped tool/weapon.
 
 | Field Name | Field Type | Example | Notes                        |
 |------------|------------|---------|------------------------------|
-| player ID  | UByte      | `0`     |                              |
-| tool       | UByte      | `0`     | Tool values are listed below |
+| Player ID  | UByte      | `0`     |                              |
+| Tool       | UByte      | `0`     | Tool values are listed below |
 
 #### Tools
 
 | Value | Type    |
 | ----- | -----   |
-| 0     | spade   |
-| 1     | block   |
-| 2     | gun     |
-| 3     | grenade |
+| 0     | Spade   |
+| 1     | Block   |
+| 2     | Gun     |
+| 3     | Grenade |
 
 ## Set Colour
 Set the colour of a player's held block.
@@ -339,14 +339,13 @@ Set the colour of a player's held block.
 
 | Field Name | Field Type | Example | Notes |
 |------------|------------|---------|-------|
-| player ID  | UByte      | `0`     |       |
-| blue       | UByte      | `0`     |       |
-| green      | UByte      | `0`     |       |
-| red        | UByte      | `0`     |       |
+| Player ID  | UByte      | `0`     |       |
+| Blue       | UByte      | `0`     |       |
+| Green      | UByte      | `0`     |       |
+| Red        | UByte      | `0`     |       |
 
 ## Existing Player
 Set player's team, weapon, etc.
-
 
 |------------:|---------|
 | Packet ID   | 9       |
@@ -354,17 +353,17 @@ Set player's team, weapon, etc.
 
 #### Fields
 
-| Field Name | Field Type                                                 | Example | Notes |
-|------------|------------------------------------------------------------|---------|-------|
-| player ID  | UByte                                                      | `0`     |       |
-| team       | UByte                                                      | `0`     |       |
-| weapon     | UByte                                                      | `0`     |       |
-| held item  | UByte                                                      | `0`     |       |
-| kills      | LE UInt                                                    | `0`     |       |
-| blue       | UByte                                                      | `0`     |       |
-| green      | UByte                                                      | `0`     |       |
-| red        | UByte                                                      | `0`     |       |
-| name       | [CP437](http://en.wikipedia.org/wiki/Code_page_437) String | `Deuce` |       |
+| Field Name | Field Type                                                  | Example | Notes |
+|------------|-------------------------------------------------------------|---------|-------|
+| Player ID  | UByte                                                       | `0`     |       |
+| Team       | UByte                                                       | `0`     |       |
+| Weapon     | UByte                                                       | `0`     |       |
+| Held item  | UByte                                                       | `0`     |       |
+| Kills      | LE UInt                                                     | `0`     |       |
+| Blue       | UByte                                                       | `0`     |       |
+| Green      | UByte                                                       | `0`     |       |
+| Red        | UByte                                                       | `0`     |       |
+| Name       | [CP437](http://en.wikipedia.org/wiki/Code_page_437) String? | `Deuce` |       |
 
 ## Short Player Data
 Like Existing Player, but with less information.
@@ -377,9 +376,9 @@ Like Existing Player, but with less information.
 
 | Field Name | Field Type | Example | Notes |
 |------------|------------|---------|-------|
-| player ID  | UByte      | `0`     |       |
-| team       | UByte      | `0`     |       |
-| weapon     | UByte      | `0`     |       |
+| Player ID  | UByte      | `0`     |       |
+| Team       | UByte      | `0`     |       |
+| Weapon     | UByte      | `0`     |       |
 
 ## Move Object
 This packet is used to move various game objects like tents, intels and even grenades. When moving grenades in TC mode the voxlap client has a bug that changes grenades' models to small tents.
@@ -392,11 +391,11 @@ This packet is used to move various game objects like tents, intels and even gre
 
 | Field Name | Field Type | Example | Notes       |
 |------------|------------|---------|-------------|
-| object id  | UByte      | `0`     |             |
-| team       | UByte      | `0`     | 2 = neutral |
-| x position | LE Float   | `0`     |             |
-| y position | LE Float   | `0`     |             |
-| z position | LE Float   | `0`     |             |
+| Object ID  | UByte      | `0`     |             |
+| Team       | UByte      | `0`     | 2 = neutral |
+| X position | LE Float   | `0`     |             |
+| Y position | LE Float   | `0`     |             |
+| Z position | LE Float   | `0`     |             |
 
 ## Create Player
 Send on respawn of a player.
@@ -407,15 +406,15 @@ Send on respawn of a player.
 
 #### Fields
 
-| Field Name | Field Type                                                 | Example | Notes |
-|------------|------------------------------------------------------------|---------|-------|
-| player id  | UByte                                                      | `0`     |       |
-| weapon     | UByte                                                      | `0`     |       |
-| team       | UByte                                                      | `0`     |       |
-| x position | LE Float                                                   | `0`     |       |
-| y position | LE Float                                                   | `0`     |       |
-| z position | LE Float                                                   | `0`     |       |
-| name       | [CP437](http://en.wikipedia.org/wiki/Code_page_437) String | `Deuce` |       |
+| Field Name | Field Type                                                  | Example | Notes |
+|------------|-------------------------------------------------------------|---------|-------|
+| Player id  | UByte                                                       | `0`     |       |
+| Weapon     | UByte                                                       | `0`     |       |
+| Team       | UByte                                                       | `0`     |       |
+| X position | LE Float                                                    | `0`     |       |
+| Y position | LE Float                                                    | `0`     |       |
+| Z position | LE Float                                                    | `0`     |       |
+| Name       | [CP437](http://en.wikipedia.org/wiki/Code_page_437) String? | `Deuce` |       |
 
 ## Block Action
 Sent when a block is placed/destroyed.
@@ -428,21 +427,21 @@ Sent when a block is placed/destroyed.
 
 | Field Name  | Field Type | Example | Notes           |
 |-------------|------------|---------|-----------------|
-| player id   | UByte      | `0`     |                 |
-| action type | UByte      | `0`     | See table below |
-| x position  | LE Int     | `0`     |                 |
-| y position  | LE Int     | `0`     |                 |
-| z position  | LE Int     | `0`     |                 |
+| Player id   | UByte      | `0`     |                 |
+| Action type | UByte      | `0`     | See table below |
+| X position  | LE Int     | `0`     |                 |
+| Y position  | LE Int     | `0`     |                 |
+| Z position  | LE Int     | `0`     |                 |
 
 
 #### Fields
 
-| Value | Type                                  | Notes                                               |
-| ----- | ------------------------------------- | --------------------------------------------------- |
-| 0     | build                                 | places a block with the player's selected color     |
-| 1     | bullet and spade(left button) destroy |                                                     |
-| 2     | spade(right button) destroy           | destroys 3 blocks, one above and below additionally |
-| 3     | grenade destroy                       | destroys all blocks within an 3x3x3 area            |
+| Value | Type                                   | Notes                                               |
+| ----- | -------------------------------------- | --------------------------------------------------- |
+| 0     | Build                                  | places a block with the player's selected color     |
+| 1     | Bullet and spade (left button) destroy |                                                     |
+| 2     | Spade (right button) destroy           | destroys 3 blocks, one above and below additionally |
+| 3     | Grenade destroy                        | destroys all blocks within an 3x3x3 area            |
 
 ## Block Line
 Create a line of blocks between 2 points. The block color is defined by the `Set Color` packet. 
@@ -453,13 +452,13 @@ Create a line of blocks between 2 points. The block color is defined by the `Set
 
 | Field Name       | Field Type      | Example | Notes |
 | ---------------- | --------------- | ------- | ----- |
-| player id        | UByte           | `0`     |       |
-| start x position | LE Int          | `0`     |       |
-| start y position | LE Int          | `0`     |       |
-| start z position | LE Int          | `0`     |       |
-| end x position   | LE Int          | `0`     |       |
-| end y position   | LE Int          | `0`     |       |
-| end z position   | LE Int          | `0`     |       |
+| Player id        | UByte           | `0`     |       |
+| Start X position | LE Int          | `0`     |       |
+| Start Y position | LE Int          | `0`     |       |
+| Start Z position | LE Int          | `0`     |       |
+| End X position   | LE Int          | `0`     |       |
+| End Y position   | LE Int          | `0`     |       |
+| End Z position   | LE Int          | `0`     |       |
 
 ## CTF State
 Brief description.
@@ -472,18 +471,18 @@ Brief description.
 
 | Field Name             | Field Type    | Example | Notes                                                                |
 | ---------------------- | ------------- | ------- | -------------------------------------------------------------------- |
-| team 1 score           | UByte         | `0`     |                                                                      |
-| team 2 score           | UByte         | `0`     |                                                                      |
-| capture limit          | UByte         | `0`     |                                                                      |
-| intel flags            | UByte         | `0`     | bits signal if teams have intel - bit 1 for team 1, bit 2 for team 2 |
-| team 1 intel location  | Location Data | `0`     | see below                                                            |
-| team 2 intel location  | Location Data | `0`     | see below                                                            |
-| team 1 base x position | LE Float      | `0`     |                                                                      |
-| team 1 base y position | LE Float      | `0`     |                                                                      |
-| team 1 base z position | LE Float      | `0`     |                                                                      |
-| team 2 base x position | LE Float      | `0`     |                                                                      |
-| team 2 base y position | LE Float      | `0`     |                                                                      |
-| team 2 base z position | LE Float      | `0`     |                                                                      |
+| Team 1 score           | UByte         | `0`     |                                                                      |
+| Team 2 score           | UByte         | `0`     |                                                                      |
+| Capture limit          | UByte         | `0`     |                                                                      |
+| Intel flags            | UByte         | `0`     | bits signal if teams have intel - bit 1 for team 1, bit 2 for team 2 |
+| Team 1 intel location  | Location Data | `0`     | see below                                                            |
+| Team 2 intel location  | Location Data | `0`     | see below                                                            |
+| Team 1 base X position | LE Float      | `0`     |                                                                      |
+| Team 1 base Y position | LE Float      | `0`     |                                                                      |
+| Team 1 base Z position | LE Float      | `0`     |                                                                      |
+| Team 2 base X position | LE Float      | `0`     |                                                                      |
+| Team 2 base Y position | LE Float      | `0`     |                                                                      |
+| Team 2 base Z position | LE Float      | `0`     |                                                                      |
 
 The intel location data is 12 bytes long. If the intel is being held, the first
 byte is a UByte with the id of the holding player, then the rest are padding.
@@ -493,12 +492,12 @@ Floats with its x, y and z position.
 #### Fields
 
 | Intel State         | Field Name        | Field Type   |
-| ------------------- | ------------      | ------------ |
-| Held                | holding player id | UByte        |
-|                     | padding           | 11 bytes     |
-| Dropped             | intel x position  | LE Float     |
-|                     | intel y position  | LE Float     |
-|                     | intel z position  | LE Float     |
+| ------------------- | ----------------- | ------------ |
+| Held                | Holding player ID | UByte        |
+|                     | N/A (padding)     | 11 bytes     |
+| Dropped             | Intel X position  | LE Float     |
+|                     | Intel Y position  | LE Float     |
+|                     | Intel Z position  | LE Float     |
 
 This packet is not a complete packet, as it is only sent after the initial
 data, where the gamemode is sent. It could be considered as part of that
@@ -530,21 +529,21 @@ the packet after the gamemode id portion.
 
 #### Fields
 
-| Field Name             | Field Type     | Example   | Notes                     |
-| ---------------------- | -------------- | --------- | ------------------------- |
-| player id              | UByte          | 0         |                           |
-| fog (blue)             | UByte          | 0         |                           |
-| fog (green)            | UByte          | 0         |                           |
-| fog (red)              | UByte          | 0         |                           |
-| team 1 color (blue)    | UByte          | 0         |                           |
-| team 1 color (green)   | UByte          | 0         |                           |
-| team 1 color (red)     | UByte          | 0         |                           |
-| team 2 color (blue)    | UByte          | 0         |                           |
-| team 2 color (green)   | UByte          | 0         |                           |
-| team 2 color (red)     | UByte          | 0         |                           |
-| team name 1            | CP437 String   | Blue      | Always 10 characters long |
-| team name 2            | CP437 String   | Green     | Always 10 characters long |
-| gamemode id            | UByte          | 0         | 0 for CTF, 1 for TC       |
+| Field Name               | Field Type     | Example   | Notes                     |
+| ------------------------ | -------------- | --------- | ------------------------- |
+| Player id                | UByte          | 0         |                           |
+| Fog blue color value     | UByte          | 0         |                           |
+| Fog green color value    | UByte          | 0         |                           |
+| Fog red color value      | UByte          | 0         |                           |
+| Team 1 blue color value  | UByte          | 0         |                           |
+| Team 1 green color value | UByte          | 0         |                           |
+| Team 1 red color value   | UByte          | 0         |                           |
+| Team 2 blue color value  | UByte          | 0         |                           |
+| Team 2 green color value | UByte          | 0         |                           |
+| Team 2 red color value   | UByte          | 0         |                           |
+| Team 1 name              | CP437 String   | Blue      | Always 10 characters long |
+| Team 2 name              | CP437 String   | Green     | Always 10 characters long |
+| Gamemode ID              | UByte          | 0         | 0 for CTF, 1 for TC       |
 
 
 ## Kill Action
@@ -558,15 +557,15 @@ Notify the client of a player's death.
 
 | Field Name       | Field Type | Example | Notes                 |
 |------------------|------------|---------|-----------------------|
-| player ID        | UByte      | 12      | Player that died      |
-| killer ID        | UByte      | 8       |                       |
-| kill type        | UByte      | 0       | See table below       |
-| respawn time     | UByte      | 1       | Seconds until respawn |
+| Player ID        | UByte      | 12      | Player that died      |
+| Killer ID        | UByte      | 8       |                       |
+| Kill type        | UByte      | 0       | See table below       |
+| Respawn time     | UByte      | 1       | Seconds until respawn |
 
 #### Fields
 
-If sent any value higher than 6 in Ace of Spades (voxlap), game
-will display the kill message as "Derpy Kill Message"
+If any value greater than 6 is received in the classic/Voxlap client,
+it will display the kill message as "Derpy Kill Message".
 
 | Value | Type                 |
 |-------|----------------------|
@@ -581,8 +580,7 @@ will display the kill message as "Derpy Kill Message"
 ## Chat Message
 #### Two-way
 
-Reasonable limits must placed on length and frequency of chat messages.
-
+Reasonable limits should be placed on length and frequency of chat messages.
 
 | ----------: | -------- |
 | Packet ID   | 17       |
@@ -590,11 +588,9 @@ Reasonable limits must placed on length and frequency of chat messages.
 
 | Field Name   | Field Type                                                 | Example           | Notes           |
 |--------------|------------------------------------------------------------|-------------------|-----------------|
-| player id    | UByte                                                      | `0`               |                 |
+| Player id    | UByte                                                      | `0`               |                 |
 | Chat Type    | UByte                                                      | `0`               | See table below |
 | Chat Message | [CP437](http://en.wikipedia.org/wiki/Code_page_437) String | `"join /squad 1"` |                 |
-
-
 
 #### Fields
 
@@ -617,7 +613,7 @@ Should be the first packet received when a client connects.
 
 | Field Name | Field Type | Example | Notes |
 |------------|------------|---------|-------|
-| Map size   | Uint32     | `4567`  |       |
+| Map size   | LE Uint    | `4567`  |       |
 
 ## Map Start (0.76)
 #### Server->Client
@@ -625,7 +621,6 @@ Should be the first packet received when a client connects.
 Sent when a client connects, or a map is advanced for already existing connections.
 
 Should be the first packet received when a client connects.
-
 
 | ----------: | -------- |
 | Packet ID   | 18       |
@@ -687,16 +682,15 @@ Captures have affects on the client.
 
 | Field Name | Field Type | Example | Notes                           |
 |------------|------------|---------|---------------------------------|
-| player ID  | UByte      | `0`     |                                 |
-| entity ID  | UByte      | `0`     | The ID of the CP being captured |
-| winning    | UByte      | `0`     | (or losing)                     |
-| state      | UByte      | `0`     | team id                         |
+| Player ID  | UByte      | `0`     |                                 |
+| Entity ID  | UByte      | `0`     | The ID of the CP being captured |
+| Winning    | UByte      | `0`     | (or losing)                     |
+| State      | UByte      | `0`     | Team ID                         |
 
 ## Progress Bar
 #### Server->Client
 
 Display the TC progress bar.
-
 
 | ----------: | -------- |
 | Packet ID   | 22       |
@@ -706,10 +700,10 @@ Display the TC progress bar.
 
 | Field Name        | Field Type | Example | Notes                                                                                            |
 |-------------------|------------|---------|--------------------------------------------------------------------------------------------------|
-| entity ID         | UByte      | `0`     | The ID of the tent entity                                                                        |
-| capturing team ID | UByte      | `1`     |                                                                                                  |
-| rate              | Byte       | `2`     | Used by the client for interpolation, one per team member capturing (minus enemy team members). One rate unit is 5% of progress per second. |
-| progress          | LE Float   | `0.5`   | In range [0,1]                                                                                   |
+| Entity ID         | UByte      | `0`     | The ID of the tent entity                                                                        |
+| Capturing team ID | UByte      | `1`     |                                                                                                  |
+| Rate              | Byte       | `2`     | Used by the client for interpolation, one per team member capturing (minus enemy team members). One rate unit is 5% of progress per second. |
+| Progress          | LE Float   | `0.5`   | In range [0,1]                                                                                   |
 
 ## Intel Capture
 #### Server->Protocol
@@ -726,8 +720,8 @@ Winning captures have affects on the client.
 
 | Field Name | Field Type | Example | Notes                   |
 |------------|------------|---------|-------------------------|
-| player ID  | UByte      | `0`     |                         |
-| winning    | UByte      | `0`     | Was the winning capture |
+| Player ID  | UByte      | `0`     |                         |
+| Winning    | UByte      | `0`     | Was the winning capture |
 
 ## Intel Pickup
 #### Server->Protocol
@@ -742,7 +736,7 @@ Sent when a player collects the intel, which is determined by the server.
 
 | Field Name | Field Type | Example | Notes |
 |------------|------------|---------|-------|
-| player ID  | UByte      | `0`     |       |
+| Player ID  | UByte      | `0`     |       |
 
 ## Intel Drop
 #### Server->Protocol
@@ -757,10 +751,10 @@ Sent when a player dropped the intel. This will update the intel position on the
 #### Fields
 
 | Field Name | Field Type | Example | Notes                              |
-| player ID  | UByte      | `0`     | ID of the player who dropped intel |
-| x position | LE Float   | `32.0`  |                                    |
-| y position | LE Float   | `32.0`  |                                    |
-| z position | LE Float   | `32.0`  |                                    |
+| Player ID  | UByte      | `0`     | ID of the player who dropped intel |
+| X position | LE Float   | `32.0`  |                                    |
+| Y position | LE Float   | `32.0`  |                                    |
+| Z position | LE Float   | `32.0`  |                                    |
 
 ## Restock
 #### Server->Protocol
@@ -775,7 +769,7 @@ Id of the player who has been restocked.
 
 | Field Name | Field Type | Example | Notes                          |
 |------------|------------|---------|--------------------------------|
-| player ID  | UByte      | `0`     | ID of the player who restocked |
+| Player ID  | UByte      | `0`     | ID of the player who restocked |
 
 ## Fog Colour
 #### Server->Client
@@ -790,7 +784,7 @@ Set the colour of a player's fog.
 
 | Field Name | Field Type | Example      | Notes        |
 | ---------- | ---------- | ------------ | ------------ |
-| fog color  | UInt       | `0h00fefefe` | BGRA encoded |
+| Fog colour | UInt       | `0h00fefefe` | BGRA encoded |
 
 ## Weapon Reload
 #### Client-->Server->Protocol
@@ -809,9 +803,9 @@ other clients.
 
 | Field Name   | Field Type | Example | Notes               |
 |--------------|------------|---------|---------------------|
-| player ID    | UByte      | `0`     | Player who reloaded |
-| clip ammo    | UByte      | `0`     |                     |
-| reserve ammo | UByte      | `0`     |                     |
+| Player ID    | UByte      | `0`     | Player who reloaded |
+| Clip ammo    | UByte      | `0`     |                     |
+| Reserve ammo | UByte      | `0`     |                     |
 
 ## Change Team
 #### Client-->Server-->Protocol-->Kill Action & Create Player
