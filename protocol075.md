@@ -408,7 +408,7 @@ Send on respawn of a player.
 
 | Field Name | Field Type                                                  | Example | Notes |
 |------------|-------------------------------------------------------------|---------|-------|
-| Player id  | UByte                                                       | `0`     |       |
+| Player ID  | UByte                                                       | `0`     |       |
 | Weapon     | UByte                                                       | `0`     |       |
 | Team       | UByte                                                       | `0`     |       |
 | X position | LE Float                                                    | `0`     |       |
@@ -427,7 +427,7 @@ Sent when a block is placed/destroyed.
 
 | Field Name  | Field Type | Example | Notes           |
 |-------------|------------|---------|-----------------|
-| Player id   | UByte      | `0`     |                 |
+| Player ID   | UByte      | `0`     |                 |
 | Action type | UByte      | `0`     | See table below |
 | X position  | LE Int     | `0`     |                 |
 | Y position  | LE Int     | `0`     |                 |
@@ -452,7 +452,7 @@ Create a line of blocks between 2 points. The block color is defined by the `Set
 
 | Field Name       | Field Type      | Example | Notes |
 | ---------------- | --------------- | ------- | ----- |
-| Player id        | UByte           | `0`     |       |
+| Player ID        | UByte           | `0`     |       |
 | Start X position | LE Int          | `0`     |       |
 | Start Y position | LE Int          | `0`     |       |
 | Start Z position | LE Int          | `0`     |       |
@@ -485,7 +485,7 @@ Brief description.
 | Team 2 base Z position | LE Float      | `0`     |                                                                      |
 
 The intel location data is 12 bytes long. If the intel is being held, the first
-byte is a UByte with the id of the holding player, then the rest are padding.
+byte is a UByte with the ID of the holding player, then the rest are padding.
 If the intel is on the ground (not being held), the data will hold three LE
 Floats with its x, y and z position.
 
@@ -521,7 +521,7 @@ gamemode, it is documented separately.
 
 Indicates that the map transfer is complete. Also informs the client of
 numerous game parameters. Be aware that CTFState or TCState may be appended to
-the packet after the gamemode id portion.
+the packet after the gamemode ID portion.
 
 | ----------: | -------- |
 | Packet ID   | 15       |
@@ -531,7 +531,7 @@ the packet after the gamemode id portion.
 
 | Field Name               | Field Type     | Example   | Notes                     |
 | ------------------------ | -------------- | --------- | ------------------------- |
-| Player id                | UByte          | 0         |                           |
+| Player ID                | UByte          | 0         |                           |
 | Fog blue color value     | UByte          | 0         |                           |
 | Fog green color value    | UByte          | 0         |                           |
 | Fog red color value      | UByte          | 0         |                           |
@@ -588,7 +588,7 @@ Reasonable limits should be placed on length and frequency of chat messages.
 
 | Field Name   | Field Type                                                 | Example           | Notes           |
 |--------------|------------------------------------------------------------|-------------------|-----------------|
-| Player id    | UByte                                                      | `0`               |                 |
+| Player ID    | UByte                                                      | `0`               |                 |
 | Chat Type    | UByte                                                      | `0`               | See table below |
 | Chat Message | [CP437](http://en.wikipedia.org/wiki/Code_page_437) String | `"join /squad 1"` |                 |
 
