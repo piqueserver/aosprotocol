@@ -837,7 +837,7 @@ clients of the team change.
 ## Change Weapon
 #### Client-->Server-->Protocol-->Kill Action & Create Player
 
-Sent by the client when the player changes weapon. It SHOULD NOT sent to clients,
+Sent by the client when the player changes weapon. It SHOULD NOT be sent to clients,
 but pyspades and all known derivatives send the packet with invalid parameters
 immediately before the kill action is sent (if any). All packets of this type sent from
 the server SHOULD be ignored.
