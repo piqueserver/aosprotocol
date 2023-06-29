@@ -4,7 +4,7 @@ Documentation and development of the protocol used primarily by Voxlap (classic)
 This started out as a dump of the aoswiki.rakiru.com Protocol page, but is meant to be the hub for
 developing the AoS protocol in the future.
 
-Browse the documentation at https://piqueserver.org/aosprotocol, or just read through the git repository instead.
+Browse the documentation at https://www.piqueserver.org/aosprotocol, or just read through the git repository instead.
 
 ## Workflow
 You want to add a packet to AoS? Great!
