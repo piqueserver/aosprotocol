@@ -983,7 +983,3 @@ Start from after the 0-byte in the Function name string. Then, loop through thes
 * 1: `ASP_INT`: Read a 32-bit little-endian int. AngelScript type: "int"
 * 2: `ASP_FLOAT`: Read a 32-bit little-endian single-precision float. AngelScript type: "float"
 * 3: `ASP_PSTRING`: Read an 8-bit uint, then read that many bytes as a string (do NOT add in a terminating NUL). AngelScript type: "const string &in"
-
-# Other Resources
-* [KVX File Format Specification](https://github.com/piqueserver/aosprotocol/edit/master/index.md) - A mirror of the readme for Slab6 which contains the .kvx file format, the format that the AoS model format is based on
-* [VXL File Format Specification](http://silverspaceship.com/aosmap/aos_file_format.html) - A description of the .vxl file format, the format used for AoS maps
