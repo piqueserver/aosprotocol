@@ -175,9 +175,9 @@ ID, or even based on which players have moved since last update (although this m
 Updates position and orientation of all players. Unlike 0.75, this only sends
 information for the necessary players.
 
-| -----------: | -------------------- |
-| Packet ID    | 2                    |
-| Total Size:  | 1 + 25*players bytes |
+| -----------: | ------------------ |
+| Packet ID    | 2                  |
+| Total Size:  | 1+25*players bytes |
 
 #### Fields
 
