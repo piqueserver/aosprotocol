@@ -139,13 +139,15 @@ This packet is used to set the players orientation.
 |        z | LE Float |  `0`  |     |
 
 ## World Update (0.75)
-Updates position and orientation of all players. Always sends data for 32
-players, with empty slots being all 0 (position: [0,0,0], orientation:
+Updates position and orientation of all players.
+Depending on the server implementation, the size may be fixed at 32 players or dynamic based on the greatest player
+ID, or even based on which players have moved since last update (although this may not work well with Voxlap).
+"Slots" which are not occupied by a connected player should be zeroed-out (position: [0,0,0], orientation:
 [0,0,0]).
 
-| ----------: | -------- |
-| Packet ID   | 2        |
-| Total Size: | 13 bytes |
+| ----------: | ------------------ |
+| Packet ID   | 2                  |
+| Total Size: | 1+24*players bytes |
 
 #### Fields
 
@@ -155,8 +157,8 @@ players, with empty slots being all 0 (position: [0,0,0], orientation:
 
 #### 'Player Position Data'
 
-| ----------: | --------- |
-| Total Size: | 769 bytes |
+| ----------: | -------- |
+| Total Size: | 24 bytes |
 
 #### Fields
 
@@ -173,9 +175,9 @@ players, with empty slots being all 0 (position: [0,0,0], orientation:
 Updates position and orientation of all players. Unlike 0.75, this only sends
 information for the necessary players.
 
-| -----------: | ----------    |
-| Packet ID    | 2             |
-| Total Size:  | 1 + 25n bytes |
+| -----------: | -------------------- |
+| Packet ID    | 2                    |
+| Total Size:  | 1 + 25*players bytes |
 
 #### Fields
 
@@ -186,7 +188,7 @@ information for the necessary players.
 #### 'Player Position Data'
 
 |------------:|----------|
-| Total Size: | 24 bytes |
+| Total Size: | 25 bytes |
 
 #### Fields
 
