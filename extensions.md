@@ -81,6 +81,7 @@ player's screen.
 | Version:   | 1   |
 
 #### New Types:
+
 | Value | Type         | Notes                                 |
 |-------|--------------|---------------------------------------|
 | 3     | CHAT_BIG     | Displayed on the center of the screen |
