@@ -3,7 +3,7 @@ the extensions made by the community.
 
 # Overview
 [Ace of Spades](http://buildandshoot.com/) uses the [ENet networking
-library](http://enet.bespin.org/Features.html) for all server-client
+library](http://sauerbraten.org/enet/) for all server-client
 communication. The initial source for the protocol information was the original
 [pyspades](http://code.google.com/p/pyspades/) source code, for which the
 source for 1.0 was not released. Nonetheless, the 1.0 alpha client has been
@@ -40,11 +40,11 @@ Packetless extensions exist as an artefact of the implementation of extensions.
 As the space reserved for extension packets is limited, values above 192 do not
 have any packet types left.
 
-| ID  | Name          | Description                                           | Link |
-|-----|---------------|-------------------------------------------------------|------|
-| 192 | Player Limit  | Support for up to 256 players                         | TODO |
-| 193 | Message Types | Additional message types such as warnings and satuses | TODO [#14](https://github.com/piqueserver/aosprotocol/issues/14) |
-| 194 | Kick Reason   | Repurposes the chat to send a disconnect reason text  | TODO |
+| ID  | Name                                           | Description                                           |
+|-----|------------------------------------------------|-------------------------------------------------------|
+| 192 | [Player Limit](extensions.html#player-limit)   | Support for up to 256 players                         |
+| 193 | [Message Types](extensions.html#message-types) | Additional message types such as warnings and statuses|
+| 194 | [Kick Reason](extensions.html#kick-reason)     | Repurposes the chat to send a disconnect reason text  |
 
 ### Implementers
  * [OpenSpades](https://github.com/yvt/openspades)
