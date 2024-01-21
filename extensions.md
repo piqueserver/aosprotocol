@@ -55,3 +55,44 @@ reply with an `ExtInfo` packet that lists the extensions it supports (if it does
 
 The client can omit any extensions that the server does not support from its
 reply, but this is not necessary as the server can simply ignore them itself.
+
+
+# Packetless Packets
+* [Player Limit](#player-limit)
+* [Message Types](#message-types)
+* [Kick Reason](#kick-reason)
+
+## Player Limit
+
+Tells client server supports up to 256 players.
+
+| ---------: |-----|
+| Packet ID: | 192 |
+| Version:   | 1   |
+
+## Message Types
+
+This packet is an extension to the [Chat Message](protocol075.html#chat-message), it adds new chat types.
+So clients can handle it how they want, in most clients it will display the message in different area/size/color/sound in
+player's screen.
+
+| ---------: |-----|
+| Packet ID: | 193 |
+| Version:   | 1   |
+
+#### New Types:
+| Value | Type         | Notes                                 |
+|-------|--------------|---------------------------------------|
+| 3     | CHAT_BIG     | Displayed on the center of the screen |
+| 4     | CHAT_INFO    | Displays a notice                     |
+| 5     | CHAT_WARNING | Displays a warning                    |
+| 6     | CHAT_ERROR   | Displays a error                      |
+
+## Kick Reason
+
+Send a [Chat Message](protocol075.html#chat-message) with type 2 (CHAT_SYSTEM) and player id 255, before
+kicking a player out of the server.
+
+| ---------: |-----|
+| Packet ID: | 194 |
+| Version:   | 1   |
