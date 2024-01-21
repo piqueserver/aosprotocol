@@ -60,6 +60,7 @@ reply, but this is not necessary as the server can simply ignore them itself.
 # Packetless Packets
 * [Player Limit](#player-limit)
 * [Message Types](#message-types)
+* [Kick Reason](#kick-reason)
 
 ## Player Limit
 
@@ -86,3 +87,12 @@ player's screen.
 | 4     | CHAT_INFO    | Displays a notice                     |
 | 5     | CHAT_WARNING | Displays a warning                    |
 | 6     | CHAT_ERROR   | Displays a error                      |
+
+## Kick Reason
+
+Send a [Chat Message](protocol075.html#chat-message) with type 2 (CHAT_SYSTEM) and player id 255, before
+kicking a player out of the server.
+
+| ---------: |-----|
+| Packet ID: | 194 |
+| Version:   | 1   |
