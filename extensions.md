@@ -58,7 +58,16 @@ reply, but this is not necessary as the server can simply ignore them itself.
 
 
 # Packetless Packets
+* [Player Limit](#player-limit)
 * [Message Types](#message-types)
+
+## Player Limit
+
+Tells client server supports up to 256 players.
+
+| ---------: |-----|
+| Packet ID: | 192 |
+| Version:   | 1   |
 
 ## Message Types
 
