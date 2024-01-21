@@ -55,3 +55,25 @@ reply with an `ExtInfo` packet that lists the extensions it supports (if it does
 
 The client can omit any extensions that the server does not support from its
 reply, but this is not necessary as the server can simply ignore them itself.
+
+
+# Packetless Packets
+* [Message Types](#message-types)
+
+## Message Types
+
+This packet is an extension to the [Chat Message](protocol075.html#chat-message), it adds new chat types.
+So clients can handle it how they want, in most clients it will display the message in different area/size/color/sound in
+player's screen.
+
+| ---------: |-----|
+| Packet ID: | 193 |
+| Version:   | 1   |
+
+#### New Types:
+| Value | Type         | Notes                                 |
+|-------|--------------|---------------------------------------|
+| 3     | CHAT_BIG     | Displayed on the center of the screen |
+| 4     | CHAT_INFO    | Displays a notice                     |
+| 5     | CHAT_WARNING | Displays a warning                    |
+| 6     | CHAT_ERROR   | Displays a error                      |
