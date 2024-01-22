@@ -85,6 +85,11 @@ this byte.
 * [Change Team](#change-team)
 * [Change Weapon](#change-weapon)
 * [Map Cached (0.76)](#map-cached-076)
+* [Extra Packets](#extra-packets)
+* [Version Handshake Init (EP)](#version-handshake-init-ep)
+* [Version Handshake Response (EP)](#version-handshake-response-ep)
+* [Version Get (EP)](#version-get-ep)
+* [Version Response (EP)](#version-response-ep)
 * [Powerthirst Edition](#powerthirst-edition)
 * [Map Start (PT)](#map-start-pt)
 * [Map Chunk (PT)](#map-chunk-pt)
@@ -877,6 +882,73 @@ clients of the weapon change.
 | Field Name | Field Type | Example | Notes                        |
 |------------|------------|---------|------------------------------|
 | Cached     | UByte      | `1`     | `1` if cached, `0` otherwise |
+
+# Extra Packets
+
+Extra packets are new packets added by the community, usually requiring a script.
+
+## Version Handshake Init (EP)
+#### Server->Client
+
+Sent to the client for checking if client is compatible with version info (this isnt
+required to get version info).
+
+When sent, server waits for a [Handshake Response](#version-handshake-response-ep) with the
+challenge.
+
+
+| ----------: | -------- |
+| Packet ID   | 31       |
+| Total Size: | 5 bytes  |
+
+| Field Name | Field Type | Example | Notes                                                   |
+|------------|------------|---------|---------------------------------------------------------|
+| Challenge  | LE Int     | `42`    | A number that should be sent back in handshake response |
+
+## Version Handshake Response (EP)
+#### Client->Server
+
+Send back the challenge number to the server, for validating the client (this isnt
+required to get version info).
+
+
+| ----------: | -------- |
+| Packet ID   | 32       |
+| Total Size: | 5 bytes  |
+
+| Field Name | Field Type | Example | Notes                                       |
+|------------|------------|---------|---------------------------------------------|
+| Challenge  | LE Int     | `42`    | Number sent to the client in Handshake Init |
+
+
+## Version Get (EP)
+#### Server->Client
+
+Ask the client to send the client and operational system infos.
+
+
+| ----------: | -------- |
+| Packet ID   | 33       |
+| Total Size: | 1 byte   |
+
+## Version Response (EP)
+#### Client->Server
+
+Send the client and operational system infos.
+
+
+| ----------: | -------------- |
+| Packet ID   | 34             |
+| Total Size: | (varies) bytes |
+
+| Field Name         | Field Type   | Example      | Notes                                  |
+|--------------------|--------------|--------------|----------------------------------------|
+| client_identifier  | Byte         | `o`          | Number representing an ASCII character |
+| version_major      | Byte         | `-1`         | Current client major version           |
+| version_minor      | Byte         | `-1`         | Current client minor version           |
+| version_revision   | Byte         | `-1`         | Current client revision version        |
+| version_revision   | Byte         | `-1`         | Current client revision version        |
+| os_info            | CP437 String | `Windows 10` | Operational System informations        |
 
 # Powerthirst Edition
 
