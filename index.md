@@ -25,9 +25,9 @@ Packetful extensions are extensions that can be used to send packets. Each
 extension has 256 packet types reserved for itself. This is useful for adding
 functionality that requires sending additional information from or to the client.
 
-| ID | Name          | Description                                          | Link |
-|----|---------------|------------------------------------------------------|------|
-|    |               |                                                      |      |
+| ID | Name              | Description                                                      | Link                                                   |
+|----|-------------------|------------------------------------------------------------------|--------------------------------------------------------|
+| 0  | Player Properties | Sends additional player attributes from the server to the client | [Player Properties](extensions.html#player-properties) |
 
 
 ### Packetless Extensions
