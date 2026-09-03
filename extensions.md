@@ -106,7 +106,7 @@ Byte layout (offsets are within the packet, including the Packet ID byte):
 | 8      | 4    | Score         |
 
 
-# Packetless Packets
+# Extensions Without New Packet Types
 * [Player Limit](#player-limit)
 * [Message Types](#message-types)
 * [Kick Reason](#kick-reason)
