@@ -900,6 +900,7 @@ registered so far.
 | ID   | Name                                                   | Type          | Description                                                      |
 |------|--------------------------------------------------------|---------------|------------------------------------------------------------------|
 | 0    | [Player Properties](extensions/player-properties.html) | `HAS_PACKETS` | Sends additional player attributes from the server to the client |
+| 3    | [Flashlight](extensions/flashlight.html)               | `HAS_PACKETS` | A light a player carries, switched by the server, seen by all    |
 | 192  | [Player Limit](extensions/player-limit.html)           | `PACKETLESS`  | Support for up to 256 players                                    |
 | 193  | [Message Types](extensions/message-types.html)         | `PACKETLESS`  | Additional message types such as warnings and statuses           |
 | 194  | [Kick Reason](extensions/kick-reason.html)             | `PACKETLESS`  | Repurposes the chat to send a disconnect reason text             |
