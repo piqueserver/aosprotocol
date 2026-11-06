@@ -7,6 +7,9 @@ commonly played version.
 
 When you connect, you must send a version number as the initial data.
 
+The server must then respond with a Map Start packet, a sequence of Map Chunk packets,
+and a State Data packet.
+
 Following that a client needs to send an Existing Player data packet to send
 its own name, team etc.
 
@@ -20,7 +23,9 @@ player.
 | 4      | 0.76        |
 
 Send this magic number as part of the `enet_host_connect(ENetHost, ENetAddress,
-channels, int)` function
+channels, int)` function.
+
+Clients expect `ENetHost` to be configured with the default RangeCoder compression and no checksum.
 
 ## Disconnect Reasons
 
